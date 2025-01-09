@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startpage</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="stylesheet" href="bootstrap.min.css">
+
+  <style>
+
+    :root {
+      --body-color: #1a1a1a;
+      --collapse-bg: #F7F7F7;
+      --collapse-color: #1a1a1a;
+      --collapse-line-color: #acacde;
+      --collapse-icon-color: #b8336a;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      color: var(--body-color);
+      background: #ffffff;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .search-box {
+      margin-bottom: 20px;
+    }
+
+    h2,
+    h4 {
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    details {
+      background: var(--collapse-bg);
+      color: var(--collapse-color);
+      border-radius: 8px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    summary {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      padding: 1rem;
+      font-weight: bold;
+    }
+
+    .details-info {
+      border-top: 1px solid var(--collapse-line-color);
+      padding: 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    button {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .searchicon {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button:hover {
+      background: rgb(0, 180, 110);
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      h2,
+      h4 {
+        font-size: 1.2rem;
+      }
+
+      .search-box {
+        margin: 0 auto;
+      }
+
+      .details-info {
+        padding: 0.5rem;
+      }
+
+      .container {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container text-center">
+    <a href="Index.html"><img src="images/refresh.png"></a></br>
+    </br>
+    </br>
+    <svg fill="none" height="53" viewBox="0 0 240 53" width="240" xmlns="http://www.w3.org/2000/svg" class="startpage-logo" aria-hidden="true"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="12.3364" x2="115.476" y1="41.9584" y2="53.3451"><stop offset="0" stop-color="#6677fb"></stop><stop offset="1" stop-color="#29ddcc"></stop></linearGradient><clipPath id="b"><path d="m0 0h240v53h-240z"></path></clipPath><g clip-path="url(#b)" clip-rule="evenodd" fill-rule="evenodd"><path d="m1.08052 47.4405c.58192-.8236 1.53793-1.359 2.82647-1.5649 36.32841-5.8889 73.15551-5.9301 109.48401-.1647.997.1647 1.621.453 1.953.7824.291.2883.416.6589.333 1.1943-.083.453-.291.7412-.624.9059-.415.206-1.08.2883-2.078.1648-35.9956-4.324-72.2409-2.9239-107.73791 4.2004-.33253.0412-.66505.0824-.95601.0824h-.29096c-.87288-.0412-1.49637-.3294-1.87046-.5765-.83131-.5354-1.371662-1.4002-1.57949-2.3885-.124697-.9884.041565-1.9355.54035-2.6356z" fill="url(#a)"></path><path d="m26.3942 19.4375c-1.0807-.8237-2.4524-1.5649-4.1566-2.2238-1.6626-.6589-3.6578-1.1943-5.9439-1.6884-1.9536-.453-3.4915-.8648-4.6138-1.3178-1.1222-.4118-1.91198-.906-2.41077-1.4414-.49878-.5353-.70661-1.1942-.70661-1.9767 0-1.4413.62348-2.55319 1.87048-3.37681 1.2469-.82362 2.9096-1.23543 4.9878-1.23543 1.8705 0 3.6578.28827 5.4451.90598 1.7874.61772 3.4916 1.56488 5.1542 2.80031l2.5771-5.72416c-.9561-.86481-2.1615-1.64725-3.5331-2.22378-1.4133-.61772-2.9512-1.070708-4.6138-1.441337-1.6626-.329449-3.3668-.494173-5.1126-.494173-2.9096 0-5.44508.494173-7.64806 1.48252-2.16141.98834-3.8656 2.34732-5.11257 4.03574-1.2054 1.7296-1.828889 3.62393-1.828889 5.76534 0 1.4825.249394 2.8003.706619 3.9534.49878 1.1531 1.24697 2.1414 2.28611 2.965 1.03914.8648 2.4108 1.6061 4.07343 2.2238 1.66262.6589 3.69936 1.1943 6.06856 1.6884 1.8705.4118 3.4084.8236 4.5307 1.2355 1.1222.4118 1.9536.8648 2.4523 1.4413.4988.5353.7898 1.1942.7898 1.9767 0 1.3178-.6235 2.3473-1.8705 3.0886-1.2469.7412-3.0343 1.1118-5.3619 1.1118-2.1614 0-4.1982-.2882-6.15174-.9059-1.95359-.6177-3.82404-1.5649-5.65293-2.8003l-2.61863 5.7241c1.12227.8648 2.45237 1.6473 3.9903 2.265s3.20055 1.1119 4.94631 1.4413c1.74579.3295 3.57469.4942 5.40349.4942 3.2006 0 5.9024-.453 8.1885-1.359 2.2445-.906 3.9903-2.1826 5.1957-3.8298 1.2054-1.6473 1.7873-3.624 1.7873-5.8889 0-1.4414-.2494-2.6768-.7898-3.7887-.4572-1.0707-1.2469-2.059-2.3276-2.8826zm14.5479-17.09008-.0416.01343v-.01343zm-.0416.01343v8.51105h6.6505v5.7653h-6.6505v10.0894c0 .9883.2078 1.812.5819 2.4297s.8729 1.0707 1.4964 1.3178c.6235.247 1.2885.3706 1.9951.3706.4157 0 .8313-.0412 1.2054-.0824.4157-.0823.8729-.1647 1.3717-.2471v5.8889c-.7066.2883-1.4548.4942-2.1614.5766-.7482.1235-1.4964.1647-2.3277.1647-3.2005 0-5.6529-.906-7.3571-2.718-1.7042-1.8119-2.5355-4.3651-2.5355-7.5773v-10.1717-5.7653-6.05364zm26.602 9.41665c1.1639.7413 2.0367 1.6473 2.6602 2.7592h.0416v-3.624h7.6481v25.8617h-7.6481v-3.8298c-.6235 1.1119-1.4964 2.059-2.6602 2.7591-1.6211.9884-3.4915 1.4825-5.5698 1.4825-2.2861 0-4.2813-.5765-6.027-1.6472-1.7458-1.1119-3.1175-2.6356-4.0735-4.6535-.956-2.0178-1.4548-4.3652-1.4548-7.0419 0-2.718.4573-5.0653 1.4548-7.1244.9976-2.059 2.3277-3.6239 4.0735-4.777 1.7457-1.1118 3.7409-1.6884 5.9854-1.6884 2.1199 0 3.9488.4942 5.5698 1.5237zm-3.3252 19.4787c1.912 0 3.3668-.6589 4.4059-1.9356 1.0392-1.2766 1.5795-3.1297 1.5795-5.5182 0-2.4709-.5403-4.324-1.5795-5.6418-1.0391-1.3178-2.5355-1.9767-4.4059-1.9767-1.8705 0-3.3669.6589-4.4476 2.0179-1.0807 1.3589-1.621 3.2121-1.621 5.6418 0 2.3885.5403 4.2416 1.5795 5.5182 1.0391 1.2766 2.5355 1.8944 4.4891 1.8944zm47.9247-28.90878-.041.01343v-.01343zm-.041.01343v8.51105h6.65v5.7653h-6.65v10.0894c0 .9883.208 1.812.582 2.4297s.873 1.0707 1.496 1.3178c.624.247 1.289.3706 1.995.3706.416 0 .832-.0412 1.206-.0824.415-.0823.873-.1647 1.371-.2471v5.8889c-.706.2883-1.454.4942-2.161.5766-.748.1235-1.496.1647-2.328.1647-3.2 0-5.653-.906-7.357-2.718-1.704-1.8119-2.535-4.3651-2.535-7.5773v-10.1717-5.7653-6.05364zm26.56 7.89295c2.245 0 4.24.5354 5.986 1.6884 1.746 1.1531 3.076 2.718 4.073 4.7359.998 2.059 1.497 4.4475 1.497 7.1243s-.499 5.0241-1.497 7.0419c-.997 2.0179-2.327 3.5828-4.073 4.6535-1.746 1.1119-3.741 1.6472-5.986 1.6472-2.119 0-3.99-.4941-5.569-1.4825-1.123-.7001-1.954-1.606-2.577-2.7179v15.237h-7.773v-29.8563c0-1.2352-.042-2.4704-.083-3.7056v-.0007c-.042-1.2354-.167-2.4708-.333-3.7063h7.316l.498 4.4064c.582-1.4413 1.538-2.6356 2.952-3.5416 1.579-1.0295 3.45-1.5237 5.569-1.5237zm-2.203 21.0024c1.912 0 3.367-.6178 4.406-1.8944 1.04-1.2766 1.538-3.1297 1.58-5.6006 0-2.3885-.54-4.2828-1.58-5.6418-1.039-1.3178-2.535-2.0179-4.406-2.0179-1.953 0-3.45.6589-4.489 1.9767s-1.538 3.2121-1.538 5.6418.499 4.324 1.538 5.6006c1.039 1.2767 2.536 1.9356 4.489 1.9356zm36.079-16.7195c-.623-1.1119-1.496-2.0179-2.66-2.7592-1.621-1.0295-3.45-1.5237-5.57-1.5237-2.244 0-4.239.5766-5.985 1.6884-1.746 1.1531-3.076 2.718-4.074 4.777-.997 2.0591-1.454 4.4064-1.454 7.1244 0 2.6767.498 5.0241 1.454 7.0419.956 2.0179 2.328 3.5416 4.074 4.6535 1.746 1.0707 3.741 1.6472 6.027 1.6472 2.078 0 3.949-.4941 5.57-1.4825 1.164-.7001 2.036-1.6472 2.66-2.7591v3.8298h7.648v-25.8617h-7.69zm-1.538 14.7839c-1.039 1.2767-2.494 1.9356-4.406 1.9356-1.953 0-3.449-.6178-4.489-1.8944-1.039-1.2766-1.579-3.1297-1.579-5.5182s.54-4.2829 1.621-5.6418c1.081-1.359 2.577-2.0179 4.447-2.0179 1.871 0 3.367.6589 4.406 1.9767 1.04 1.3178 1.58 3.1709 1.58 5.6418-.042 2.3885-.54 4.2416-1.58 5.5182zm30.219-17.5019c1.163.7413 2.078 1.6472 2.701 2.7591v-3.6651h7.732v24.6263c0 4.1593-1.206 7.289-3.575 9.4304s-5.902 3.2122-10.516 3.2122c-4.115 0-7.731-.7825-10.807-2.3885l1.164-5.7242c1.579.7824 3.117 1.359 4.696 1.7296 1.58.3706 3.159.5765 4.697.5765 2.245 0 3.908-.4941 4.988-1.5237 1.123-1.0295 1.663-2.5944 1.663-4.6946v-4.5299c-.374.5353-.79 1.0707-1.289 1.5649-.873.8648-1.912 1.5237-3.117 2.059-1.247.5354-2.536.7825-3.949.7825-2.286 0-4.281-.5354-6.027-1.6061s-3.117-2.5532-4.115-4.4887c-.997-1.9356-1.496-4.2005-1.496-6.7949s.499-4.8182 1.496-6.7537c.998-1.8943 2.369-3.418 4.115-4.4887 1.746-1.1119 3.783-1.6473 6.027-1.6473 2.12 0 3.99.5354 5.612 1.5649zm-3.367 18.3256c1.87 0 3.367-.6178 4.447-1.8532 1.081-1.2354 1.621-2.965 1.663-5.1476 0-2.1414-.499-3.871-1.58-5.1065-1.08-1.2766-2.577-1.8943-4.489-1.8943s-3.45.6177-4.53 1.8532c-1.123 1.2354-1.663 2.9238-1.663 5.1064s.54 3.9122 1.663 5.1476c1.122 1.2766 2.618 1.8944 4.489 1.8944zm-103.9973-18.0786c-1.0807.8237-1.8704 1.9355-2.4108 3.2945l-.5403-4.4887h-7.3156c.1663 1.2354.291 2.4708.3325 3.7063.0416 1.2354.0832 2.4708.0832 3.7063v18.4491h7.7727v-13.5074c0-1.2766.2494-2.3885.7482-3.3357.4988-.9471 1.2054-1.6472 2.1199-2.1826.9144-.4941 2.0782-.7824 3.4499-.7824.8313 0 1.6626.1235 2.4936.3706v-6.8772c-.415-.0824-.8725-.1235-1.4129-.1235-1.9951 0-3.7825.5765-5.3204 1.7707zm144.7313 4.2007c.956 1.9767 1.455 4.2829 1.455 6.9596l-.083 2.5533h-17.001c.25 1.5237.749 2.7179 1.497 3.5827 1.164 1.2766 2.909 1.9355 5.279 1.9355 1.371 0 2.743-.2059 4.073-.6589s2.577-1.0707 3.699-1.8943l2.037 5.1888c-1.247.9883-2.785 1.7296-4.614 2.3061-1.787.5354-3.616.8237-5.486.8237-2.91 0-5.404-.5766-7.524-1.6473-2.119-1.1119-3.741-2.6356-4.863-4.6534-1.122-1.9767-1.704-4.3652-1.704-7.1244 0-2.6767.582-5.024 1.663-7.0419 1.08-2.0591 2.577-3.624 4.489-4.777 1.912-1.1119 4.115-1.6884 6.65-1.6884 2.411 0 4.531.5353 6.318 1.606 1.788 1.0707 3.159 2.5532 4.115 4.5299zm-14.382 1.1943c-.581.8236-.997 1.8119-1.247 3.0886h10.392c-.166-1.4002-.54-2.5121-1.205-3.3357-.873-1.1119-2.12-1.6472-3.783-1.6472-1.787 0-3.159.6177-4.157 1.8943z" fill="#202C46"></path></g></svg>
+    </br>
+
+    <!-- Search Engine -->
+
+    <div class="col-md-6 offset-md-3 mt-4">
+    </br>
+
+      <div class="input-group mb-3">
+        <input type="text" id="textInput1" class="form-control" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+        <button class="btn btn-outline-secondary" id="output1">
+            <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+        </button>
+      </div>
+    </div>
+    </br>
+
+    <!-- Google United States -->
+
+    <details id="section1" class="hidden">
+      <summary>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1500 1000" style="height: 18px;">
+          <defs><style>.cls-4{fill:#fff}</style></defs><path style="fill:#b22234" d="M0 0h1500v998.93H0z"/><path d="M0 115.26h1500m0 153.68H0m0 153.69h1500m0 153.68H0M0 730h1500m0 153.68H0" style="stroke:#fff;stroke-miterlimit:10;stroke-width:50px"/><path style="fill:#3c3b6e" d="M0 0h759.19v537.89H0z"/><g id="s18"><g id="s9"><g id="s5"><g id="s4"><path id="s" class="cls-4" d="m63.27 23.05 18.06 55.61L34 44.29h58.5L45.2 78.66Z"/><path id="s-2" data-name="s" class="cls-4" d="m63.27 130.63 18.06 55.6L34 151.87h58.5l-47.3 34.36Z"/><path id="s-3" data-name="s" class="cls-4" d="m63.27 238.21 18.06 55.6L34 259.45h58.5l-47.3 34.36Z"/><path id="s-4" data-name="s" class="cls-4" d="m63.27 345.78 18.06 55.61L34 367h58.5l-47.3 34.39Z"/></g><path id="s-5" data-name="s" class="cls-4" d="M63.27 453.36 81.33 509 34 474.6h58.5L45.2 509Z"/></g><g id="s4-2" data-name="s4"><path id="s-6" data-name="s" class="cls-4" d="m126.53 76.84 18.07 55.6-47.3-34.36h58.46l-47.29 34.36Z"/><path id="s-7" data-name="s" class="cls-4" d="M126.53 184.42 144.6 240l-47.3-34.34h58.46L108.47 240Z"/><path id="s-8" data-name="s" class="cls-4" d="m126.53 292 18.07 55.6-47.3-34.37h58.46l-47.29 34.37Z"/><path id="s-9" data-name="s" class="cls-4" d="m126.53 399.57 18.07 55.61-47.3-34.37h58.46l-47.29 34.37Z"/></g></g><g id="s9-2" data-name="s9"><g id="s5-2" data-name="s5"><g id="s4-3" data-name="s4"><path id="s-10" data-name="s" class="cls-4" d="m189.8 23.05 18.06 55.61-47.29-34.37H219l-47.3 34.37Z"/><path id="s-11" data-name="s" class="cls-4" d="m189.8 130.63 18.06 55.6-47.29-34.36H219l-47.3 34.36Z"/><path id="s-12" data-name="s" class="cls-4" d="m189.8 238.21 18.06 55.6-47.29-34.36H219l-47.3 34.36Z"/><path id="s-13" data-name="s" class="cls-4" d="m189.8 345.78 18.06 55.61L160.57 367H219l-47.3 34.37Z"/></g><path id="s-14" data-name="s" class="cls-4" d="M189.8 453.36 207.86 509l-47.29-34.4H219L171.73 509Z"/></g><g id="s4-4" data-name="s4"><path id="s-15" data-name="s" class="cls-4" d="m253.06 76.84 18.07 55.6-47.3-34.36h58.47L235 132.44Z"/><path id="s-16" data-name="s" class="cls-4" d="M253.06 184.42 271.13 240l-47.3-34.36h58.47L235 240Z"/><path id="s-17" data-name="s" class="cls-4" d="m253.06 292 18.07 55.6-47.3-34.37h58.47L235 347.6Z"/><path id="s-18" data-name="s" class="cls-4" d="m253.06 399.57 18.07 55.61-47.3-34.37h58.47L235 455.18Z"/></g></g></g><g id="s18-2" data-name="s18"><g id="s9-3" data-name="s9"><g id="s5-3" data-name="s5"><g id="s4-5" data-name="s4"><path id="s-19" data-name="s" class="cls-4" d="m316.33 23.05 18.07 55.61-47.3-34.37h58.46l-47.3 34.37Z"/><path id="s-20" data-name="s" class="cls-4" d="m316.33 130.63 18.07 55.6-47.3-34.36h58.46l-47.3 34.36Z"/><path id="s-21" data-name="s" class="cls-4" d="m316.33 238.21 18.07 55.6-47.3-34.36h58.46l-47.3 34.36Z"/><path id="s-22" data-name="s" class="cls-4" d="m316.33 345.78 18.07 55.61L287.1 367h58.46l-47.3 34.37Z"/></g><path id="s-23" data-name="s" class="cls-4" d="M316.33 453.36 334.4 509l-47.3-34.4h58.46l-47.3 34.4Z"/></g><g id="s4-6" data-name="s4"><path id="s-24" data-name="s" class="cls-4" d="m379.59 76.84 18.07 55.6-47.3-34.36h58.47l-47.3 34.36Z"/><path id="s-25" data-name="s" class="cls-4" d="M379.59 184.42 397.66 240l-47.3-34.36h58.47L361.53 240Z"/><path id="s-26" data-name="s" class="cls-4" d="m379.59 292 18.07 55.6-47.3-34.37h58.47l-47.3 34.37Z"/><path id="s-27" data-name="s" class="cls-4" d="m379.59 399.57 18.07 55.61-47.3-34.37h58.47l-47.3 34.37Z"/></g></g><g id="s9-4" data-name="s9"><g id="s5-4" data-name="s5"><g id="s4-7" data-name="s4"><path id="s-28" data-name="s" class="cls-4" d="m442.86 23.05 18.07 55.61-47.3-34.37h58.46l-47.3 34.37Z"/><path id="s-29" data-name="s" class="cls-4" d="m442.86 130.63 18.07 55.6-47.3-34.36h58.46l-47.3 34.36Z"/><path id="s-30" data-name="s" class="cls-4" d="m442.86 238.21 18.07 55.6-47.3-34.36h58.46l-47.3 34.36Z"/><path id="s-31" data-name="s" class="cls-4" d="m442.86 345.78 18.07 55.61-47.3-34.39h58.46l-47.3 34.37Z"/></g><path id="s-32" data-name="s" class="cls-4" d="M442.86 453.36 460.93 509l-47.3-34.37h58.46L424.79 509Z"/></g><g id="s4-8" data-name="s4"><path id="s-33" data-name="s" class="cls-4" d="m506.13 76.84 18.06 55.6-47.3-34.36h58.47l-47.3 34.36Z"/><path id="s-34" data-name="s" class="cls-4" d="M506.13 184.42 524.19 240l-47.3-34.36h58.47L488.06 240Z"/><path id="s-35" data-name="s" class="cls-4" d="m506.13 292 18.06 55.6-47.3-34.37h58.47l-47.3 34.37Z"/><path id="s-36" data-name="s" class="cls-4" d="m506.13 399.57 18.06 55.61-47.3-34.37h58.47l-47.3 34.37Z"/></g></g></g><g id="s9-5" data-name="s9"><g id="s5-5" data-name="s5"><g id="s4-9" data-name="s4"><path id="s-37" data-name="s" class="cls-4" d="m569.39 23.05 18.07 55.61-47.3-34.37h58.46l-47.29 34.37Z"/><path id="s-38" data-name="s" class="cls-4" d="m569.39 130.63 18.07 55.6-47.3-34.36h58.46l-47.29 34.36Z"/><path id="s-39" data-name="s" class="cls-4" d="m569.39 238.21 18.07 55.6-47.3-34.36h58.46l-47.29 34.36Z"/><path id="s-40" data-name="s" class="cls-4" d="m569.39 345.78 18.07 55.61-47.3-34.39h58.46l-47.29 34.37Z"/></g><path id="s-41" data-name="s" class="cls-4" d="M569.39 453.36 587.46 509l-47.3-34.37h58.46L551.33 509Z"/></g><g id="s4-10" data-name="s4"><path id="s-42" data-name="s" class="cls-4" d="m632.66 76.84 18.06 55.6-47.29-34.36h58.46l-47.3 34.36Z"/><path id="s-43" data-name="s" class="cls-4" d="M632.66 184.42 650.72 240l-47.29-34.36h58.46L614.59 240Z"/><path id="s-44" data-name="s" class="cls-4" d="m632.66 292 18.06 55.6-47.29-34.37h58.46l-47.3 34.37Z"/><path id="s-45" data-name="s" class="cls-4" d="m632.66 399.57 18.06 55.61-47.29-34.37h58.46l-47.3 34.37Z"/></g></g><g id="s5-6" data-name="s5"><g id="s4-11" data-name="s4"><path id="s-46" data-name="s" class="cls-4" d="M695.92 23.05 714 78.66l-47.3-34.37h58.47l-47.3 34.37Z"/><path id="s-47" data-name="s" class="cls-4" d="m695.92 130.63 18.08 55.6-47.3-34.36h58.47l-47.3 34.36Z"/><path id="s-48" data-name="s" class="cls-4" d="m695.92 238.21 18.08 55.6-47.3-34.36h58.47l-47.3 34.36Z"/><path id="s-49" data-name="s" class="cls-4" d="M695.92 345.78 714 401.39 666.69 367h58.47l-47.3 34.37Z"/></g><path id="s-50" data-name="s" class="cls-4" d="M695.92 453.36 714 509l-47.3-34.37h58.47L677.86 509Z"/></g>
+        </svg>
+        &nbsp;&nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 272 92" style="height: 26px;">
+          <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/><path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/><path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/><path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/><path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/><path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
+        </svg>
+      </summary>
+      <div class="details-info" id="sectionDetails1"></div>
+    </details>
+
+    <!-- Google Canada -->
+
+    <details id="section2" class="hidden">
+      <summary>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1500 1000" style="height: 18px;">
+          <defs><clipPath id="a"><path style="fill:none" d="M0-.44h1500v1000H0z"/></clipPath></defs><g style="clip-path:url(#a)"><path style="fill:#db1f26" d="M-78.43-100.44h1656.86v1200H-78.43z"/><path style="fill:#fff" d="M421.64-8.1h656.73v1015.32H421.64z"/><path d="M1077.5-8.1h433.99v1015.32H1077.5zm-1088.99 0H422.5v1015.32H-11.49zM750 181.56l-51.43 95.91c-5.83 10.43-16.29 9.46-26.75 3.64l-37.23-19.29 27.74 147.37c5.84 26.92-12.89 26.92-22.13 15.23l-65-72.75-10.54 36.94c-1.21 4.85-6.57 9.95-14.6 8.73l-82.16-17.26 21.59 78.47c4.61 17.45 8.22 24.68-4.67 29.29l-29.28 13.75L597 616.5a18.52 18.52 0 0 1 6.44 19.29l-12.39 40.61c48.74-5.61 92.33-14.06 141.06-19.29 4.31-.46 11.5 6.64 11.47 11.63l-6.44 148.81h23.66L757.11 669c0-5 6.51-12.4 10.81-11.94 48.74 5.2 92.39 13.65 141.06 19.29l-12.38-40.57a18.5 18.5 0 0 1 6.4-19.29l141.41-114.9-29.29-13.76c-12.88-4.61-9.28-11.84-4.66-29.29l21.59-78.47-82.17 17.26c-8 1.22-13.38-3.88-14.59-8.73l-10.55-36.94-65 72.75c-9.24 11.64-28 11.64-22.14-15.23l27.8-147.33-37.22 19.29c-10.46 5.82-20.92 6.79-26.75-3.63" style="fill:#ec2224"/></g>
+        </svg>
+        &nbsp;&nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 272 92" style="height: 26px;">
+          <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/><path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"/><path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"/><path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"/><path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"/><path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"/>
+        </svg>
+      </summary>
+      <div class="details-info" id="sectionDetails2"></div>
+    </details>
+
+    <!-- Yandex -->
+
+    <details id="section3" class="hidden">
+      <summary>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 697.4 167.92" style="height: 26px;">
+          <path d="M55.887 165.54v-16.672c0-22.627-2.627-33.82-11.703-53.352L0 .006h30.57l37.498 81.695c10.986 23.82 15.763 36.204 15.763 63.595v20.245zM73.8 80.033 108.67.004h29.376l-35.348 80.03z" fill="#fc3f1d"/><path d="m639.84 125.05-24.122 40.49h-28.9l37.737-62.403-36.303-57.402h32.004l22.928 36.204 20.54-36.204h28.422l-33.915 58.117L697.4 165.54h-32.004zM511.82 94.8h39.647v-2.38c0-15.007-4.3-26.678-18.391-26.678-13.613 0-20.54 10.004-21.256 29.058m27.466 73.122c-36.303 0-56.843-20.245-56.843-61.927 0-36.203 16.48-62.642 51.11-62.642 28.423 0 46.812 15.72 46.812 57.402v15.006H511.82c1.195 20.007 9.076 29.772 29.854 29.772 13.853 0 28.66-5.24 37.497-11.194v23.104c-8.358 5.715-21.733 10.48-39.885 10.48m-150.7-61.45c0 27.151 7.644 39.06 23.167 39.06 16.002 0 24.123-12.147 24.123-40.014 0-27.629-7.642-39.777-22.93-39.777-16.24 0-24.36 12.386-24.36 40.73m-29.376 0c0-40.015 19.107-63.119 46.572-63.119 12.42 0 22.929 5.717 30.094 16.435V.004h28.42v165.54h-26.27l-1.434-15.48c-7.643 11.67-18.63 17.862-32.004 17.862-26.75 0-45.378-21.912-45.378-61.45m-85.98 59.068h-28.422v-119.8h27.705l.717 10.004h1.432c5.733-5.716 15.763-11.909 32.72-11.909 23.167 0 32.72 10.48 32.72 34.298v87.412h-28.42V80.995c0-9.05-4.538-13.338-14.57-13.338-10.27 0-18.628 5.478-23.882 11.91zm-80.01-55.972h-4.06c-24.362 0-34.153 5.002-34.153 19.054 0 10.72 5.97 17.864 17.912 17.864 10.03 0 16.718-4.288 20.3-9.527zm28.42 26.676q0 14.65 1.434 29.296h-27.705c-.955-2.382-1.91-6.43-2.15-9.526h-1.193c-5.494 5.716-12.66 11.194-29.377 11.194-21.973 0-36.78-13.576-36.78-37.87 0-24.296 19.345-38.586 62.813-38.586h4.538v-6.67c0-12.862-6.21-17.625-19.823-17.625-14.57 0-31.287 6.193-38.931 11.91v-23.58c8.599-5.003 23.406-10.957 42.274-10.957 30.094 0 44.9 10.956 44.9 40.014z"/>
+        </svg>
+      </summary>
+      <div class="details-info" id="sectionDetails3"></div>
+    </details>
+
+    <!-- Bing -->
+
+    <details id="section4" class="hidden">
+      <summary>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 153.82 24.002" style="height: 26px;">
+          <path d="M11.35 0H0v11.35h11.35z" fill="#f26522"/><path d="M23.88 0H12.53v11.35h11.35z" fill="#8dc63f"/><path d="M11.35 12.53H0v11.35h11.35z" fill="#00aeef"/><path d="M23.88 12.53H12.53v11.35h11.35z" fill="#ffc20e"/><path d="M46.55 4.77V19.1h-2.48V7.87h-.05L39.59 19.1h-1.65L33.37 7.87h-.03V19.1h-2.3V4.77h3.57l4.11 10.62h.06l4.35-10.62Zm2.08 1.1c0-.4.15-.74.44-1.01s.63-.4 1.03-.4a1.44 1.44 0 0 1 1.48 1.4c0 .4-.14.73-.43 1-.28.26-.64.4-1.05.4s-.76-.14-1.04-.41c-.29-.27-.43-.6-.43-.99Zm2.67 2.96V19.1h-2.42V8.83Zm7.34 8.51c.35 0 .75-.08 1.18-.24q.66-.255 1.2-.66v2.24c-.38.22-.82.4-1.3.5a7.2 7.2 0 0 1-1.62.17 4.97 4.97 0 0 1-3.7-1.43 5 5 0 0 1-1.4-3.66c0-1.65.48-3.01 1.45-4.08.96-1.07 2.33-1.6 4.1-1.6a5.6 5.6 0 0 1 2.48.58v2.31a5 5 0 0 0-1.14-.63 3.3 3.3 0 0 0-1.2-.23c-.95 0-1.72.31-2.3.93s-.89 1.46-.89 2.51c0 1.04.29 1.85.85 2.43s1.33.86 2.3.86zm9.27-8.68a2.5 2.5 0 0 1 .91.14v2.45a2.56 2.56 0 0 0-1.44-.4c-.6 0-1.1.26-1.5.76s-.62 1.27-.62 2.3v5.2h-2.42V8.82h2.42v1.62h.04c.22-.56.56-1 1-1.31.45-.32.98-.48 1.6-.48zm1.04 5.46c0-1.7.48-3.05 1.44-4.04s2.3-1.49 4-1.49c1.6 0 2.85.48 3.76 1.43s1.35 2.25 1.35 3.88c0 1.66-.48 2.99-1.44 3.97a5.22 5.22 0 0 1-3.92 1.48c-1.59 0-2.85-.47-3.79-1.4a5.17 5.17 0 0 1-1.4-3.83m2.52-.08c0 1.07.24 1.89.73 2.46s1.18.84 2.09.84c.87 0 1.54-.28 2-.84s.7-1.41.7-2.52c0-1.1-.24-1.94-.72-2.5a2.48 2.48 0 0 0-2-.85c-.89 0-1.57.3-2.06.88-.5.6-.74 1.44-.74 2.53m11.63-2.51c0 .35.1.62.33.82.22.2.7.44 1.46.74.96.39 1.64.82 2.03 1.3.39.49.58 1.07.58 1.76 0 .96-.37 1.74-1.11 2.33s-1.75.88-3.01.88a7.3 7.3 0 0 1-2.73-.56v-2.37c.44.3.91.55 1.42.73.5.18.97.27 1.38.27.55 0 .95-.08 1.21-.23.26-.16.39-.41.39-.77 0-.34-.14-.62-.4-.85-.28-.23-.79-.5-1.54-.8-.89-.37-1.52-.79-1.9-1.26s-.56-1.05-.56-1.77c0-.93.37-1.7 1.1-2.29.75-.6 1.7-.9 2.87-.9a7 7 0 0 1 2.33.44v2.3c-.32-.22-.7-.4-1.12-.56a3.7 3.7 0 0 0-1.27-.23c-.46 0-.82.1-1.07.27a.86.86 0 0 0-.4.75zm5.44 2.59c0-1.7.48-3.05 1.44-4.04a5.3 5.3 0 0 1 4-1.49c1.6 0 2.86.48 3.76 1.43s1.35 2.25 1.35 3.88c0 1.66-.48 2.99-1.44 3.97a5.22 5.22 0 0 1-3.91 1.48c-1.6 0-2.86-.47-3.8-1.4a5.17 5.17 0 0 1-1.4-3.83m2.52-.08c0 1.07.24 1.89.73 2.46s1.18.84 2.1.84c.87 0 1.54-.28 2-.84s.7-1.41.7-2.52c0-1.1-.25-1.94-.72-2.5a2.48 2.48 0 0 0-2-.85c-.89 0-1.58.3-2.07.88a3.8 3.8 0 0 0-.74 2.53m16.06-3.23h-3.6v8.3h-2.45v-8.3h-1.72V8.83h1.72V7.4a3.56 3.56 0 0 1 3.75-3.69c.3 0 .56.02.78.05.23.03.43.08.6.14v2.09a2.4 2.4 0 0 0-1.1-.27c-.51 0-.9.16-1.18.47-.27.32-.4.78-.4 1.4v1.25h3.6V6.53l2.42-.74v3.05H112v1.97h-2.45v4.8c0 .64.12 1.09.35 1.35q.345.39 1.08.39a2.35 2.35 0 0 0 1.02-.34v2c-.15.09-.4.17-.76.24s-.7.1-1.06.1c-1.01 0-1.78-.26-2.29-.8-.5-.55-.76-1.36-.76-2.46v-5.28zm10.38 8.43V5.07h4.5c1.37 0 2.46.3 3.26.9q1.2.9 1.2 2.34c0 .8-.23 1.5-.68 2.1a3.68 3.68 0 0 1-1.89 1.26v.04c.98.11 1.75.47 2.33 1.09.59.6.88 1.4.88 2.37 0 1.21-.48 2.2-1.43 2.94s-2.16 1.13-3.62 1.13zm2.35-12.28v4.03h1.52c.82 0 1.46-.2 1.92-.57.47-.4.7-.94.7-1.64 0-1.22-.81-1.82-2.43-1.82zm0 5.92v4.48h2c.88 0 1.56-.2 2.03-.6q.72-.615.72-1.68c0-1.47-1.01-2.2-3.05-2.2zM129.97 7c-.37 0-.7-.13-.96-.37-.27-.24-.4-.55-.4-.93s.13-.69.4-.94.59-.37.97-.37.71.12.98.37.4.57.4.94c0 .36-.13.66-.4.92-.27.25-.6.38-.99.38m1.14 12.24h-2.29V9.12h2.3zm11.35 0h-2.29v-5.7c0-1.9-.67-2.84-2-2.84-.7 0-1.28.27-1.74.8a2.9 2.9 0 0 0-.68 1.97v5.77h-2.3V9.12h2.3v1.68h.04a3.6 3.6 0 0 1 3.28-1.92q1.65 0 2.52 1.08c.58.71.87 1.74.87 3.1zm11.35-.81c0 3.71-1.86 5.57-5.6 5.57a8.35 8.35 0 0 1-3.45-.66v-2.1c1.1.64 2.16.95 3.15.95 2.4 0 3.61-1.18 3.61-3.55v-1.1h-.04a3.71 3.71 0 0 1-3.42 1.93 3.72 3.72 0 0 1-2.98-1.34 5.5 5.5 0 0 1-1.13-3.63c0-1.72.4-3.08 1.22-4.1s1.92-1.52 3.34-1.52c1.33 0 2.32.55 2.97 1.64h.04v-1.4h2.3zm-2.27-3.82v-1.32c0-.71-.24-1.32-.71-1.82a2.3 2.3 0 0 0-1.76-.76c-.87 0-1.55.33-2.04.97a4.34 4.34 0 0 0-.74 2.69c0 1 .24 1.79.7 2.39.48.6 1.1.89 1.88.89.8 0 1.44-.29 1.93-.85.5-.58.74-1.3.74-2.2z" fill="#737373"/>
+        </svg>
+      </summary>
+      <div class="details-info" id="sectionDetails4"></div>
+    </details>
+  
+    <hr/>
+
+  <script>
+
+document.getElementById('output1').addEventListener('click', function () {
+      const textInput = document.getElementById('textInput1').value.trim();
+
+      // Proceed if textbox is not empty
+      if (textInput) {
+
+        var plaintext = document.getElementById('textInput1').value;
+
+        // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+        // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+        // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+        // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+
+        // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+        var encoded = encodeURIComponent(plaintext)
+        .replace(/%20/g, '+') // Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+        .replace(/-/g, '-') // Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+        .replace(/_/g, '_') // Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+        .replace(/\./g, '.') // Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+        .replace(/!/g, '%21') // Convert ! to %21
+        .replace(/~/g, '~') // Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+        .replace(/\*/g, '%2A') // Convert * to %2A
+        .replace(/'/g, '%27') // Convert ' to %27
+        .replace(/\(/g, '%28') // Convert ( to %28
+        .replace(/\)/g, '%29'); // Convert ) to %29
+
+        const queryString = encoded;
+
+        // Define Variables for Google United States
+
+        let directLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&safe=off';
+        let directLink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&cr=countryUS&safe=off';
+        let directLink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=US';
+
+        var GoogleUSpage1 = `${directLink1}`;
+        var GoogleUSpage2 = `${directLink1}&start=10`;
+        var GoogleUSpage3 = `${directLink1}&start=20`;
+        var GoogleUSpage4 = `${directLink1}&start=30`;
+        var GoogleUSpage5 = `${directLink1}&start=40`;
+        var GoogleUSpage6 = `${directLink1}&start=50`;
+        var GoogleUSpage7 = `${directLink1}&start=60`;
+        var GoogleUSpage8 = `${directLink1}&start=70`;
+        var GoogleUSpage9 = `${directLink1}&start=80`;
+        var GoogleUSpage10 = `${directLink1}&start=90`;
+
+        var GoogleUSsearchTypeImage = `${directLink1}&tbm=isch`;
+        var GoogleUSsearchTypeVideos = `${directLink1}&tbm=vid`;
+        var GoogleUSsearchTypeShopping = `${directLink1}&tbm=shop`;
+        var GoogleUSsearchTypeNews = `${directLink1}&tbm=nws`;
+
+        var GoogleUSCRpage1 = `${directLink2}`;
+        var GoogleUSCRpage2 = `${directLink2}&start=10`;
+        var GoogleUSCRpage3 = `${directLink2}&start=20`;
+        var GoogleUSCRpage4 = `${directLink2}&start=30`;
+        var GoogleUSCRpage5 = `${directLink2}&start=40`;
+        var GoogleUSCRpage6 = `${directLink2}&start=50`;
+        var GoogleUSCRpage7 = `${directLink2}&start=60`;
+        var GoogleUSCRpage8 = `${directLink2}&start=70`;
+        var GoogleUSCRpage9 = `${directLink2}&start=80`;
+        var GoogleUSCRpage10 = `${directLink2}&start=90`;
+
+        var GoogleUSCRsearchTypeImage = `${directLink2}&tbm=isch`;
+        var GoogleUSCRsearchTypeVideos = `${directLink2}&tbm=vid`;
+        var GoogleUSCRsearchTypeShopping = `${directLink2}&tbm=shop`;
+        var GoogleUSCRsearchTypeNews = `${directLink2}&tbm=nws`;
+
+        // Define Variables for Google Canada
+
+        let directLink4 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIWVG9yb250byxPbnRhcmlvLENhbmFkYQ&gl=ca&safe=off';
+        let directLink5 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIWVG9yb250byxPbnRhcmlvLENhbmFkYQ&gl=ca&cr=countryCA&safe=off';
+        let directLink6 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=CA';
+
+        var GoogleCApage1 = `${directLink4}`;
+        var GoogleCApage2 = `${directLink4}&start=10`;
+        var GoogleCApage3 = `${directLink4}&start=20`;
+        var GoogleCApage4 = `${directLink4}&start=30`;
+        var GoogleCApage5 = `${directLink4}&start=40`;
+        var GoogleCApage6 = `${directLink4}&start=50`;
+        var GoogleCApage7 = `${directLink4}&start=60`;
+        var GoogleCApage8 = `${directLink4}&start=70`;
+        var GoogleCApage9 = `${directLink4}&start=80`;
+        var GoogleCApage10 = `${directLink4}&start=90`;
+
+        var GoogleCAsearchTypeImage = `${directLink4}&tbm=isch`;
+        var GoogleCAsearchTypeVideos = `${directLink4}&tbm=vid`;
+        var GoogleCAsearchTypeShopping = `${directLink4}&tbm=shop`;
+        var GoogleCAsearchTypeNews = `${directLink4}&tbm=nws`;
+
+        var GoogleCACRpage1 = `${directLink5}`;
+        var GoogleCACRpage2 = `${directLink5}&start=10`;
+        var GoogleCACRpage3 = `${directLink5}&start=20`;
+        var GoogleCACRpage4 = `${directLink5}&start=30`;
+        var GoogleCACRpage5 = `${directLink5}&start=40`;
+        var GoogleCACRpage6 = `${directLink5}&start=50`;
+        var GoogleCACRpage7 = `${directLink5}&start=60`;
+        var GoogleCACRpage8 = `${directLink5}&start=70`;
+        var GoogleCACRpage9 = `${directLink5}&start=80`;
+        var GoogleCACRpage10 = `${directLink5}&start=90`;
+
+        var GoogleCACRsearchTypeImage = `${directLink5}&tbm=isch`;
+        var GoogleCACRsearchTypeVideos = `${directLink5}&tbm=vid`;
+        var GoogleCACRsearchTypeShopping = `${directLink5}&tbm=shop`;
+        var GoogleCACRsearchTypeNews = `${directLink5}&tbm=nws`;
+
+        // Define Variables for Yandex
+
+        let directLink7 = 'https://yandex.com/search/?text=' + queryString;
+        let directLink8 = 'https://yandex.com/images/search/?text=' + queryString;
+        let directLink9 = 'https://yandex.com/video/search?text=' + queryString;
+
+        var YandexsearchTypeRegular = `${directLink7}`;
+        var YandexsearchTypeImage = `${directLink8}`;
+        var YandexsearchTypeVideos = `${directLink9}`;
+
+        // Define Variables for Yandex
+
+        let directLink10 = 'https://www.bing.com/search?q=' + queryString;
+        let directLink11 = 'https://www.bing.com/images/search?q=' + queryString;
+        let directLink12 = 'https://www.bing.com/videos/search?q=' + queryString;
+        let directLink13 = 'https://www.bing.com/news/search?q=' + queryString;
+
+        var BingsearchTypeRegular = `${directLink10}`;
+        var BingsearchTypeImage = `${directLink11}`;
+        var BingsearchTypeVideos = `${directLink12}`;
+        var BingsearchTypeNews = `${directLink13}`;
+
+        // Populate Section 1: Google United States
+        sectionDetails1.innerHTML = `
+        <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
+        <strong>Simulate Search Results from Specified Location</strong></br></br>
+        <strong><a href='${GoogleUSpage1}' target='_blank'>Regular Google Search</a></strong><br>
+        <a href='${GoogleUSpage1}' target='_blank'>1</a>
+        <a href='${GoogleUSpage2}' target='_blank'>2</a>
+        <a href='${GoogleUSpage3}' target='_blank'>3</a>
+        <a href='${GoogleUSpage4}' target='_blank'>4</a>
+        <a href='${GoogleUSpage5}' target='_blank'>5</a>
+        <a href='${GoogleUSpage6}' target='_blank'>6</a>
+        <a href='${GoogleUSpage7}' target='_blank'>7</a>
+        <a href='${GoogleUSpage8}' target='_blank'>8</a>
+        <a href='${GoogleUSpage9}' target='_blank'>9</a>
+        <a href='${GoogleUSpage10}' target='_blank'>10</a><br><br>
+        <a href='${GoogleUSsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+        <a href='${GoogleUSsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+        <a href='${GoogleUSsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+        <a href='${GoogleUSsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
+        <a href='${directLink3}' target='_blank'>YouTube</a><br><br>
+
+        <img src="images/divider.png" style="width:104px;"></a><br><br>
+
+        <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+        <strong>Limit Search Results to Country</strong></br></br>
+        <strong><a href='${GoogleUSCRpage1}' target='_blank'>Regular Google Search</a></strong><br>
+        <a href='${GoogleUSCRpage1}' target='_blank'>1</a>
+        <a href='${GoogleUSCRpage2}' target='_blank'>2</a>
+        <a href='${GoogleUSCRpage3}' target='_blank'>3</a>
+        <a href='${GoogleUSCRpage4}' target='_blank'>4</a>
+        <a href='${GoogleUSCRpage5}' target='_blank'>5</a>
+        <a href='${GoogleUSCRpage6}' target='_blank'>6</a>
+        <a href='${GoogleUSCRpage7}' target='_blank'>7</a>
+        <a href='${GoogleUSCRpage8}' target='_blank'>8</a>
+        <a href='${GoogleUSCRpage9}' target='_blank'>9</a>
+        <a href='${GoogleUSCRpage10}' target='_blank'>10</a><br><br>
+        <a href='${GoogleUSCRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+        <a href='${GoogleUSCRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+        <a href='${GoogleUSCRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+        <a href='${GoogleUSCRsearchTypeNews}' target='_blank'>Google News Search</a>
+        `;
+
+        // Populate Section 2: Google Canada
+        sectionDetails2.innerHTML = `
+        <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
+        <strong>Simulate Search Results from Specified Location</strong></br></br>
+        <strong><a href='${GoogleCApage1}' target='_blank'>Regular Google Search</a></strong><br>
+        <a href='${GoogleCApage1}' target='_blank'>1</a>
+        <a href='${GoogleCApage2}' target='_blank'>2</a>
+        <a href='${GoogleCApage3}' target='_blank'>3</a>
+        <a href='${GoogleCApage4}' target='_blank'>4</a>
+        <a href='${GoogleCApage5}' target='_blank'>5</a>
+        <a href='${GoogleCApage6}' target='_blank'>6</a>
+        <a href='${GoogleCApage7}' target='_blank'>7</a>
+        <a href='${GoogleCApage8}' target='_blank'>8</a>
+        <a href='${GoogleCApage9}' target='_blank'>9</a>
+        <a href='${GoogleCApage10}' target='_blank'>10</a><br><br>
+        <a href='${GoogleCAsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+        <a href='${GoogleCAsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+        <a href='${GoogleCAsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+        <a href='${GoogleCAsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
+        <a href='${directLink6}' target='_blank'>YouTube</a><br><br>
+
+        <img src="images/divider.png" style="width:104px;"></a><br><br>
+
+        <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+        <strong>Limit Search Results to Country</strong></br></br>
+        <strong><a href='${GoogleCACRpage1}' target='_blank'>Regular Google Search</a></strong><br>
+        <a href='${GoogleCACRpage1}' target='_blank'>1</a>
+        <a href='${GoogleCACRpage2}' target='_blank'>2</a>
+        <a href='${GoogleCACRpage3}' target='_blank'>3</a>
+        <a href='${GoogleCACRpage4}' target='_blank'>4</a>
+        <a href='${GoogleCACRpage5}' target='_blank'>5</a>
+        <a href='${GoogleCACRpage6}' target='_blank'>6</a>
+        <a href='${GoogleCACRpage7}' target='_blank'>7</a>
+        <a href='${GoogleCACRpage8}' target='_blank'>8</a>
+        <a href='${GoogleCACRpage9}' target='_blank'>9</a>
+        <a href='${GoogleCACRpage10}' target='_blank'>10</a><br><br>
+        <a href='${GoogleCACRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+        <a href='${GoogleCACRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+        <a href='${GoogleCACRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+        <a href='${GoogleCACRsearchTypeNews}' target='_blank'>Google News Search</a>
+        `;
+
+        // Populate Section 3: Yandex
+        sectionDetails3.innerHTML = `
+        <a href="https://yandex.com/tune/search" target="_blank"><img src="images/safesearch.png" style="height:26px;"></a><br><br>
+        <a href="https://yandex.com/tune/geo/" target="_blank"><img src="images/region.png" style="height:26px;"></a><br><br>
+        <strong><a href='${YandexsearchTypeRegular}' target='_blank'>Regular Yandex Search</a></strong><br><br>
+        <a href='${YandexsearchTypeImage}' target='_blank'>Yandex Image Search</a><br><br>
+        <a href='${YandexsearchTypeVideos}' target='_blank'>Yandex Videos Search</a>
+        `;
+
+        // Populate Section 4: Bing
+        sectionDetails4.innerHTML = `
+        <a href="https://www.bing.com/account?adlt_set=off&cc=us" target="_blank"><img src="images/safesearchregion.png" style="height:26px;"></a><br><br>
+        <strong><a href='${BingsearchTypeRegular}' target='_blank'>Regular Bing Search</a></strong><br><br>
+        <a href='${BingsearchTypeImage}' target='_blank'>Bing Image Search</a><br><br>
+        <a href='${BingsearchTypeVideos}' target='_blank'>Bing Videos Search</a><br><br>
+        <a href='${BingsearchTypeNews}' target='_blank'>Bing News Search</a>
+        `;
+
+        // After pressing search button, show all sections, and expand Section 1, while all other sections are collapsed
+        const section1 = document.getElementById('section1');
+        const section2 = document.getElementById('section2');
+        const section3 = document.getElementById('section3');
+        const section4 = document.getElementById('section4');
+        section1.classList.remove('hidden');
+        section2.classList.remove('hidden');
+        section3.classList.remove('hidden');
+        section4.classList.remove('hidden');
+        section1.open = true;
+        section2.open = false;
+        section3.open = false;
+        section4.open = false;
+        document.getElementById("textInput1").value = "";
+      }
+    });
+
+    // Add event listeners to toggle sections
+    document.getElementById('section1').addEventListener('toggle', function () {
+      if (this.open) {
+        document.getElementById('section2').open = false;
+        document.getElementById('section3').open = false;
+        document.getElementById('section4').open = false;
+      }
+    });
+
+    document.getElementById('section2').addEventListener('toggle', function () {
+      if (this.open) {
+        document.getElementById('section1').open = false;
+        document.getElementById('section3').open = false;
+        document.getElementById('section4').open = false;
+      }
+    });
+
+    document.getElementById('section3').addEventListener('toggle', function () {
+      if (this.open) {
+        document.getElementById('section1').open = false;
+        document.getElementById('section2').open = false;
+        document.getElementById('section4').open = false;
+      }
+    });
+
+    document.getElementById('section4').addEventListener('toggle', function () {
+      if (this.open) {
+        document.getElementById('section1').open = false;
+        document.getElementById('section2').open = false;
+        document.getElementById('section3').open = false;
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
