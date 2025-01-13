@@ -7,6 +7,8 @@
   <title>Startpage</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="./popper.min.js"></script>
+  <script src="./bootstrap.min.js"></script>
 
   <style>
 
@@ -106,6 +108,10 @@
 
     button:hover {
       background: rgb(0, 180, 110);
+    }
+
+    .alert {
+            display: none;
     }
 
     /* Media Queries */
@@ -241,8 +247,71 @@
       </summary>
       <div class="details-info" id="sectionDetails5"></div>
     </details>
-  
+
     <hr/>
+
+    <!-- News -->
+
+    <!-- US Flag Button -->
+    <button id="usFlagButton" class="btn btn-link">
+      <img src="images/usnews.png" alt="US Flag" width="75">
+    </button>
+
+    <!-- Canada Flag Button -->
+    <button id="caFlagButton" class="btn btn-link">
+      <img src="images/canadanews.png" alt="Canada Flag" width="75">
+    </button>
+
+    <!-- UK Flag Button -->
+    <button id="ukFlagButton" class="btn btn-link">
+      <img src="images/uknews.png" alt="UK Flag" width="75">
+    </button>
+
+    </br>
+    </br>
+
+    <!-- US Flag Alert Box -->
+    <div id="usBox" class="alert alert-success mt-3">
+      <a href="https://news.google.com/?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Home</a><br><br>
+      <a href="https://news.google.com/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNRGxqTjNjd0VnSmxiaWdBUAE?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: United States</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: World</a><br><br>
+      <a href="https://news.google.com/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNREpmTWpnMkVnSmxiaWdBUAE?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Local (New York City, United States)</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Business</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGRqTVhZU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Technology</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNREpxYW5RU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Entertainment</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp1ZEdvU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Sports</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp0Y1RjU0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Science</a><br><br>
+      <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNR3QwTlRFU0JXVnVMVlZUS0FBUAE?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Health</a>
+    </div>
+
+    <!-- Canada Flag Alert Box -->
+    <div id="canadaBox" class="alert alert-success mt-3">
+      <a href="https://news.google.com/?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Home</a><br><br>
+      <a href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSkwyMHZNR1F3TmpCbkVnVmxiaTFIUWlnQVAB?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Canada</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: World</a><br><br>
+      <a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNR2czYURZU0FtVnVLQUFQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Local (Toronto, Canada)</a><br><br>
+      <a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNRzVzYURjU0FtVnVLQUFQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Local (Edmonton, Canada)</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Business</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGRqTVhZU0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Technology</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNREpxYW5RU0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Entertainment</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp1ZEdvU0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Sports</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp0Y1RjU0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Science</a><br><br>
+      <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNR3QwTlRFU0JXVnVMVU5CS0FBUAE?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Health</a>
+    </div>
+
+    <!-- UK Flag Alert Box -->
+    <div id="ukBox" class="alert alert-success mt-3">
+      <a href="https://news.google.com/?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Home</a><br><br>
+      <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNRGR6YzJNU0JXVnVMVWRDS0FBUAE?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: United Kingdom</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: World</a><br><br>
+      <a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNRFJxY0d3U0FtVnVLQUFQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Local (London, United Kingdom)</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Business</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGRqTVhZU0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Technology</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNREpxYW5RU0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Entertainment</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp1ZEdvU0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Sports</a><br><br>
+      <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp0Y1RjU0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Science</a><br><br>
+      <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNR3QwTlRFU0JXVnVMVWRDS0FBUAE?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Health</a>
+    </div>
 
   <script>
 
@@ -562,6 +631,35 @@ document.getElementById('output1').addEventListener('click', function () {
         document.getElementById('section3').open = false;
         document.getElementById('section4').open = false;
       }
+    });
+
+    // Hide both alert boxes initially
+      document.getElementById("usBox").style.display = "none";
+      document.getElementById("canadaBox").style.display = "none";
+      document.getElementById("ukBox").style.display = "none";
+
+    // US Flag Button Click Event
+      document.getElementById("usFlagButton").addEventListener("click", function() {
+      // Show US Box, and hide Canada/UK Box
+      document.getElementById("usBox").style.display = "block";
+      document.getElementById("canadaBox").style.display = "none";
+      document.getElementById("ukBox").style.display = "none";
+    });
+
+    // Canada Flag Button Click Event
+      document.getElementById("caFlagButton").addEventListener("click", function() {
+      // Show Canada Box, and hide US/UK Box
+      document.getElementById("canadaBox").style.display = "block";
+      document.getElementById("usBox").style.display = "none";
+      document.getElementById("ukBox").style.display = "none";
+    });
+
+    // UK Flag Button Click Event
+    document.getElementById("ukFlagButton").addEventListener("click", function() {
+      // Show UK Box and hide US/Canada Box
+      document.getElementById("ukBox").style.display = "block";
+      document.getElementById("usBox").style.display = "none";
+      document.getElementById("canadaBox").style.display = "none";
     });
 
   </script>
