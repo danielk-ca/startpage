@@ -248,17 +248,22 @@
 
         <!-- US Flag Button -->
         <button id="usFlagButton" class="btn btn-link hidden">
-            <img src="images/usflag.png" alt="US Flag" width="75">
+            <img src="images/usflag.png" alt="US Flag" width="40">
         </button>
 
         <!-- Canada Flag Button -->
         <button id="caFlagButton" class="btn btn-link hidden">
-            <img src="images/canadaflag.png" alt="Canada Flag" width="75">
+            <img src="images/caflag.png" alt="Canada Flag" width="40">
         </button>
 
         <!-- UK Flag Button -->
         <button id="ukFlagButton" class="btn btn-link hidden">
-            <img src="images/ukflag.png" alt="UK Flag" width="75">
+            <img src="images/ukflag.png" alt="UK Flag" width="40">
+        </button>
+
+        <!-- AU Flag Button -->
+        <button id="auFlagButton" class="btn btn-link hidden">
+            <img src="images/auflag.png" alt="AU Flag" width="40">
         </button>
 
         <!-- Links will appear here -->
@@ -607,6 +612,7 @@
     const usFlagButton = document.getElementById('usFlagButton');
     const caFlagButton = document.getElementById('caFlagButton');
     const ukFlagButton = document.getElementById('ukFlagButton');
+    const auFlagButton = document.getElementById('auFlagButton');
     const newsLinks = document.getElementById('newsLinks');
 
         // Toggle visibility of the newsBox
@@ -619,6 +625,7 @@
                 usFlagButton.classList.remove('hidden');
                 caFlagButton.classList.remove('hidden');
                 ukFlagButton.classList.remove('hidden');
+                auFlagButton.classList.remove('hidden');
                 newsLinks.innerHTML = ``;
             }
         });
@@ -676,6 +683,24 @@
             <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNR3QwTlRFU0JXVnVMVWRDS0FBUAE?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Health</a><br><br>
             <img src="images/divider.png" style="width:104px;"><br><br>
             <a href="https://www.bing.com/account/action?scope=web&cc=gb&ru=/news&settingpage=1" target="_blank">Bing News: Home</a><br><br>
+            `;
+        });
+
+        auFlagButton.addEventListener('click', () => {
+            newsLinks.innerHTML = `
+            <img src="images/divider.png" style="width:104px;"><br><br>
+            <a href="https://news.google.com/?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Home</a><br><br>
+            <a href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSkwyMHZNR05vWjJoNUVnVmxiaTFIUWlnQVAB?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Australia</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVWRDR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: World</a><br><br>
+            <a href="https://news.google.com/topics/CAAqIQgKIhtDQkFTRGdvSUwyMHZNRFo1TlRjU0FtVnVLQUFQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Local (Sydney, Australia)</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx6TVdZU0JXVnVMVUZWR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Business</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGRqTVhZU0JXVnVMVUZWR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Technology</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNREpxYW5RU0JXVnVMVUZWR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Entertainment</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp1ZEdvU0JXVnVMVUZWR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Sports</a><br><br>
+            <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFp0Y1RjU0JXVnVMVUZWR2dKQlZTZ0FQAQ?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Science</a><br><br>
+            <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNR3QwTlRFU0JXVnVMVUZWS0FBUAE?hl=en-AU&gl=AU&ceid=AU:en" target="_blank">Google News: Health</a><br><br>
+            <img src="images/divider.png" style="width:104px;"><br><br>
+            <a href="https://www.bing.com/account/action?scope=web&cc=au&ru=/news&settingpage=1" target="_blank">Bing News: Home</a><br><br>
             `;
         });
 
