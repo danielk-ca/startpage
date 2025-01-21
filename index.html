@@ -73,7 +73,6 @@
             img {
                 max-width: 100%;
                 height: auto;
-                border-radius: 5px;
             }
 
             button {
@@ -154,7 +153,7 @@
             </svg>
         </button>
         <!-- Search Button SVG -->
-        <button class="btn btn-outline-secondary" id="output1">
+        <button class="btn btn-outline-secondary" id="searchBtn">
             <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6 .1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
             </svg>
@@ -238,11 +237,11 @@
 </details>
 <hr/>
 
-    <!-- News Icon -->
-    <button id="newsButton" class="btn btn-link">
-        <img src="images/newsicon.svg" alt="News Icon" width="96">
+<!-- News Button -->
+<button id="newsButton" class="btn btn-link">
+    <img src="images/newsicon.svg" alt="News Icon" width="96">
     </button>
-    </br>
+</br>
 
     <!-- News Flag Alert Box -->
     <div id="newsBox" class="alert alert-secondary mt-3">
@@ -283,270 +282,277 @@
         document.getElementById("section5").style.display = "none";
     });
 
-    document.getElementById('output1').addEventListener('click', function() {
+    // Function to perform the search
+    function performSearch() {
         const textInput = document.getElementById('textInput1').value.trim();
 
-        // Proceed if textbox is not empty
-        if (textInput) {
+            // Proceed if textbox is not empty
+            if (textInput) {
 
-            var plaintext = document.getElementById('textInput1').value;
+                const plaintext = document.getElementById('textInput1').value;
 
-            // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
-            // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
-            // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
-            // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+                // URL Encoding (Percent Encoding) the Query String part of the full URL using encodeURIComponent
+                // The encodeURIComponent function fails to encode certain special characters - _ . ! ~ * ' ( ) ----- You have to manually specify conversion to corresponding UTF-8 Character
+                // For encodeURIComponent function to have full coverage of all special characters, coding below manually specifies conversion to UTF-8 for characters not natively supported
+                // Once encodeURIComponent function has full coverage of all special characters, any desired deviation from UTF-8 can be specified
+    
+                // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
+                const encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
+                .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
+                .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
+                .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
+                .replace(/!/g, '%21')// Convert ! to %21
+                .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
+                .replace(/\*/g, '%2A')// Convert * to %2A
+                .replace(/'/g, '%27')// Convert ' to %27
+                .replace(/\(/g, '%28')// Convert ( to %28
+                .replace(/\)/g, '%29');
+                // Convert ) to %29
+    
+                const queryString = encoded;
 
-            // As per RFC 3986, certain special characters that are allowed in a URI (i.e. not URL encoded) are: hyphen ( - ), underscore ( _ ), period ( . ), and tilde ( ~ )
-            var encoded = encodeURIComponent(plaintext).replace(/%20/g, '+')// Convert %20 to + (For application/x-www-form-urlencoded, spaces are to be replaced by +) ----- If URL Encoding Desired, delete this line
-            .replace(/-/g, '-')// Convert - to - (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/-/g, '%2D')
-            .replace(/_/g, '_')// Convert _ to _ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/_/g, '%5F')
-            .replace(/\./g, '.')// Convert . to . (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/\./g, '%2E')
-            .replace(/!/g, '%21')// Convert ! to %21
-            .replace(/~/g, '~')// Convert ~ to ~ (Do Nothing) ----- If URL Encoding Desired, change to: .replace(/~/g, '%7E')
-            .replace(/\*/g, '%2A')// Convert * to %2A
-            .replace(/'/g, '%27')// Convert ' to %27
-            .replace(/\(/g, '%28')// Convert ( to %28
-            .replace(/\)/g, '%29');
-            // Convert ) to %29
+                // Define Variables for Google United States
 
-            const queryString = encoded;
+                let directLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&safe=off';
+                let directLink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&cr=countryUS&safe=off';
+                let directLink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=US';
 
-            // Define Variables for Google United States
+                var GoogleUSpage1 = `${directLink1}`;
+                var GoogleUSpage2 = `${directLink1}&start=10`;
+                var GoogleUSpage3 = `${directLink1}&start=20`;
+                var GoogleUSpage4 = `${directLink1}&start=30`;
+                var GoogleUSpage5 = `${directLink1}&start=40`;
+                var GoogleUSpage6 = `${directLink1}&start=50`;
+                var GoogleUSpage7 = `${directLink1}&start=60`;
+                var GoogleUSpage8 = `${directLink1}&start=70`;
+                var GoogleUSpage9 = `${directLink1}&start=80`;
+                var GoogleUSpage10 = `${directLink1}&start=90`;
 
-            let directLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&safe=off';
-            let directLink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&cr=countryUS&safe=off';
-            let directLink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=US';
+                var GoogleUSsearchTypeImage = `${directLink1}&tbm=isch`;
+                var GoogleUSsearchTypeVideos = `${directLink1}&tbm=vid`;
+                var GoogleUSsearchTypeShopping = `${directLink1}&tbm=shop`;
+                var GoogleUSsearchTypeNews = `${directLink1}&tbm=nws`;
 
-            var GoogleUSpage1 = `${directLink1}`;
-            var GoogleUSpage2 = `${directLink1}&start=10`;
-            var GoogleUSpage3 = `${directLink1}&start=20`;
-            var GoogleUSpage4 = `${directLink1}&start=30`;
-            var GoogleUSpage5 = `${directLink1}&start=40`;
-            var GoogleUSpage6 = `${directLink1}&start=50`;
-            var GoogleUSpage7 = `${directLink1}&start=60`;
-            var GoogleUSpage8 = `${directLink1}&start=70`;
-            var GoogleUSpage9 = `${directLink1}&start=80`;
-            var GoogleUSpage10 = `${directLink1}&start=90`;
+                 var GoogleUSCRpage1 = `${directLink2}`;
+                var GoogleUSCRpage2 = `${directLink2}&start=10`;
+                var GoogleUSCRpage3 = `${directLink2}&start=20`;
+                var GoogleUSCRpage4 = `${directLink2}&start=30`;
+                var GoogleUSCRpage5 = `${directLink2}&start=40`;
+                var GoogleUSCRpage6 = `${directLink2}&start=50`;
+                var GoogleUSCRpage7 = `${directLink2}&start=60`;
+                var GoogleUSCRpage8 = `${directLink2}&start=70`;
+                var GoogleUSCRpage9 = `${directLink2}&start=80`;
+                var GoogleUSCRpage10 = `${directLink2}&start=90`;
 
-            var GoogleUSsearchTypeImage = `${directLink1}&tbm=isch`;
-            var GoogleUSsearchTypeVideos = `${directLink1}&tbm=vid`;
-            var GoogleUSsearchTypeShopping = `${directLink1}&tbm=shop`;
-            var GoogleUSsearchTypeNews = `${directLink1}&tbm=nws`;
+                var GoogleUSCRsearchTypeImage = `${directLink2}&tbm=isch`;
+                var GoogleUSCRsearchTypeVideos = `${directLink2}&tbm=vid`;
+                var GoogleUSCRsearchTypeShopping = `${directLink2}&tbm=shop`;
+                var GoogleUSCRsearchTypeNews = `${directLink2}&tbm=nws`;
 
-            var GoogleUSCRpage1 = `${directLink2}`;
-            var GoogleUSCRpage2 = `${directLink2}&start=10`;
-            var GoogleUSCRpage3 = `${directLink2}&start=20`;
-            var GoogleUSCRpage4 = `${directLink2}&start=30`;
-            var GoogleUSCRpage5 = `${directLink2}&start=40`;
-            var GoogleUSCRpage6 = `${directLink2}&start=50`;
-            var GoogleUSCRpage7 = `${directLink2}&start=60`;
-            var GoogleUSCRpage8 = `${directLink2}&start=70`;
-            var GoogleUSCRpage9 = `${directLink2}&start=80`;
-            var GoogleUSCRpage10 = `${directLink2}&start=90`;
+                // Define Variables for Google Canada
 
-            var GoogleUSCRsearchTypeImage = `${directLink2}&tbm=isch`;
-            var GoogleUSCRsearchTypeVideos = `${directLink2}&tbm=vid`;
-            var GoogleUSCRsearchTypeShopping = `${directLink2}&tbm=shop`;
-            var GoogleUSCRsearchTypeNews = `${directLink2}&tbm=nws`;
+                let directLink4 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIXRWRtb250b24sQWxiZXJ0YSxDYW5hZGE&gl=ca&safe=off';
+                let directLink5 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIXRWRtb250b24sQWxiZXJ0YSxDYW5hZGE&gl=ca&cr=countryCA&safe=off';
+                let directLink6 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=CA';
 
-            // Define Variables for Google Canada
+                var GoogleCApage1 = `${directLink4}`;
+                var GoogleCApage2 = `${directLink4}&start=10`;
+                var GoogleCApage3 = `${directLink4}&start=20`;
+                var GoogleCApage4 = `${directLink4}&start=30`;
+                var GoogleCApage5 = `${directLink4}&start=40`;
+                var GoogleCApage6 = `${directLink4}&start=50`;
+                var GoogleCApage7 = `${directLink4}&start=60`;
+                var GoogleCApage8 = `${directLink4}&start=70`;
+                var GoogleCApage9 = `${directLink4}&start=80`;
+                var GoogleCApage10 = `${directLink4}&start=90`;
 
-            let directLink4 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIXRWRtb250b24sQWxiZXJ0YSxDYW5hZGE&gl=ca&safe=off';
-            let directLink5 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIXRWRtb250b24sQWxiZXJ0YSxDYW5hZGE&gl=ca&cr=countryCA&safe=off';
-            let directLink6 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=CA';
+                var GoogleCAsearchTypeImage = `${directLink4}&tbm=isch`;
+                var GoogleCAsearchTypeVideos = `${directLink4}&tbm=vid`;
+                var GoogleCAsearchTypeShopping = `${directLink4}&tbm=shop`;
+                var GoogleCAsearchTypeNews = `${directLink4}&tbm=nws`;
 
-            var GoogleCApage1 = `${directLink4}`;
-            var GoogleCApage2 = `${directLink4}&start=10`;
-            var GoogleCApage3 = `${directLink4}&start=20`;
-            var GoogleCApage4 = `${directLink4}&start=30`;
-            var GoogleCApage5 = `${directLink4}&start=40`;
-            var GoogleCApage6 = `${directLink4}&start=50`;
-            var GoogleCApage7 = `${directLink4}&start=60`;
-            var GoogleCApage8 = `${directLink4}&start=70`;
-            var GoogleCApage9 = `${directLink4}&start=80`;
-            var GoogleCApage10 = `${directLink4}&start=90`;
+                var GoogleCACRpage1 = `${directLink5}`;
+                var GoogleCACRpage2 = `${directLink5}&start=10`;
+                var GoogleCACRpage3 = `${directLink5}&start=20`;
+                var GoogleCACRpage4 = `${directLink5}&start=30`;
+                var GoogleCACRpage5 = `${directLink5}&start=40`;
+                var GoogleCACRpage6 = `${directLink5}&start=50`;
+                var GoogleCACRpage7 = `${directLink5}&start=60`;
+                var GoogleCACRpage8 = `${directLink5}&start=70`;
+                var GoogleCACRpage9 = `${directLink5}&start=80`;
+                var GoogleCACRpage10 = `${directLink5}&start=90`;
 
-            var GoogleCAsearchTypeImage = `${directLink4}&tbm=isch`;
-            var GoogleCAsearchTypeVideos = `${directLink4}&tbm=vid`;
-            var GoogleCAsearchTypeShopping = `${directLink4}&tbm=shop`;
-            var GoogleCAsearchTypeNews = `${directLink4}&tbm=nws`;
+                var GoogleCACRsearchTypeImage = `${directLink5}&tbm=isch`;
+                var GoogleCACRsearchTypeVideos = `${directLink5}&tbm=vid`;
+                var GoogleCACRsearchTypeShopping = `${directLink5}&tbm=shop`;
+                var GoogleCACRsearchTypeNews = `${directLink5}&tbm=nws`;
 
-            var GoogleCACRpage1 = `${directLink5}`;
-            var GoogleCACRpage2 = `${directLink5}&start=10`;
-            var GoogleCACRpage3 = `${directLink5}&start=20`;
-            var GoogleCACRpage4 = `${directLink5}&start=30`;
-            var GoogleCACRpage5 = `${directLink5}&start=40`;
-            var GoogleCACRpage6 = `${directLink5}&start=50`;
-            var GoogleCACRpage7 = `${directLink5}&start=60`;
-            var GoogleCACRpage8 = `${directLink5}&start=70`;
-            var GoogleCACRpage9 = `${directLink5}&start=80`;
-            var GoogleCACRpage10 = `${directLink5}&start=90`;
+                // Define Variables for Yandex
 
-            var GoogleCACRsearchTypeImage = `${directLink5}&tbm=isch`;
-            var GoogleCACRsearchTypeVideos = `${directLink5}&tbm=vid`;
-            var GoogleCACRsearchTypeShopping = `${directLink5}&tbm=shop`;
-            var GoogleCACRsearchTypeNews = `${directLink5}&tbm=nws`;
+                let directLink7 = 'https://yandex.com/search/?text=' + queryString;
+                let directLink8 = 'https://yandex.com/images/search/?text=' + queryString;
+                let directLink9 = 'https://yandex.com/video/search?text=' + queryString;
 
-            // Define Variables for Yandex
+                var YandexsearchTypeRegular = `${directLink7}`;
+                var YandexsearchTypeImage = `${directLink8}`;
+                var YandexsearchTypeVideos = `${directLink9}`;
 
-            let directLink7 = 'https://yandex.com/search/?text=' + queryString;
-            let directLink8 = 'https://yandex.com/images/search/?text=' + queryString;
-            let directLink9 = 'https://yandex.com/video/search?text=' + queryString;
+                // Define Variables for Bing
 
-            var YandexsearchTypeRegular = `${directLink7}`;
-            var YandexsearchTypeImage = `${directLink8}`;
-            var YandexsearchTypeVideos = `${directLink9}`;
+                let directLink10 = 'https://www.bing.com/search?q=' + queryString;
+                let directLink11 = 'https://www.bing.com/images/search?q=' + queryString;
+                let directLink12 = 'https://www.bing.com/videos/search?q=' + queryString;
+                let directLink13 = 'https://www.bing.com/news/search?q=' + queryString;
 
-            // Define Variables for Bing
+                var BingsearchTypeRegular = `${directLink10}`;
+                var BingsearchTypeImage = `${directLink11}`;
+                var BingsearchTypeVideos = `${directLink12}`;
+                var BingsearchTypeNews = `${directLink13}`;
 
-            let directLink10 = 'https://www.bing.com/search?q=' + queryString;
-            let directLink11 = 'https://www.bing.com/images/search?q=' + queryString;
-            let directLink12 = 'https://www.bing.com/videos/search?q=' + queryString;
-            let directLink13 = 'https://www.bing.com/news/search?q=' + queryString;
+                // Define Variables for Baidu
 
-            var BingsearchTypeRegular = `${directLink10}`;
-            var BingsearchTypeImage = `${directLink11}`;
-            var BingsearchTypeVideos = `${directLink12}`;
-            var BingsearchTypeNews = `${directLink13}`;
+                let directLink14 = 'https://www.baidu.com/s?wd=' + queryString;
+                let directLink15 = 'https://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&word=' + queryString;
+                let directLink16 = 'https://www.baidu.com/sf/vsearch?pd=video&wd=' + queryString;
+                let directLink17 = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&ie=utf-8&word=' + queryString;
 
-            // Define Variables for Baidu
+                var BaidusearchTypeRegular = `${directLink14}`;
+                var BaidusearchTypeImage = `${directLink15}`;
+                var BaidusearchTypeVideos = `${directLink16}`;
+                var BaidusearchTypeNews = `${directLink17}`;
 
-            let directLink14 = 'https://www.baidu.com/s?wd=' + queryString;
-            let directLink15 = 'https://image.baidu.com/search/index?tn=baiduimage&ie=utf-8&word=' + queryString;
-            let directLink16 = 'https://www.baidu.com/sf/vsearch?pd=video&wd=' + queryString;
-            let directLink17 = 'https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&ie=utf-8&word=' + queryString;
+                // Populate Section 1: Google United States
+                sectionDetails1.innerHTML = `
+                <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
+                <strong>Simulate Search Results from Specified Location</strong></br></br>
+                <strong><a href='${GoogleUSpage1}' target='_blank'>Regular Google Search</a></strong><br>
+                <a href='${GoogleUSpage1}' target='_blank'>1</a>
+                <a href='${GoogleUSpage2}' target='_blank'>2</a>
+                <a href='${GoogleUSpage3}' target='_blank'>3</a>
+                <a href='${GoogleUSpage4}' target='_blank'>4</a>
+                <a href='${GoogleUSpage5}' target='_blank'>5</a>
+                <a href='${GoogleUSpage6}' target='_blank'>6</a>
+                <a href='${GoogleUSpage7}' target='_blank'>7</a>
+                <a href='${GoogleUSpage8}' target='_blank'>8</a>
+                <a href='${GoogleUSpage9}' target='_blank'>9</a>
+                <a href='${GoogleUSpage10}' target='_blank'>10</a><br><br>
+                <a href='${GoogleUSsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+                <a href='${GoogleUSsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+                <a href='${GoogleUSsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+                <a href='${GoogleUSsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
+                <a href='${directLink3}' target='_blank'>YouTube</a><br><br>
 
-            var BaidusearchTypeRegular = `${directLink14}`;
-            var BaidusearchTypeImage = `${directLink15}`;
-            var BaidusearchTypeVideos = `${directLink16}`;
-            var BaidusearchTypeNews = `${directLink17}`;
+                <img src="images/divider.png" style="width:104px;"></a><br><br>
 
-            // Populate Section 1: Google United States
-            sectionDetails1.innerHTML = `
-        <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
-        <strong>Simulate Search Results from Specified Location</strong></br></br>
-        <strong><a href='${GoogleUSpage1}' target='_blank'>Regular Google Search</a></strong><br>
-        <a href='${GoogleUSpage1}' target='_blank'>1</a>
-        <a href='${GoogleUSpage2}' target='_blank'>2</a>
-        <a href='${GoogleUSpage3}' target='_blank'>3</a>
-        <a href='${GoogleUSpage4}' target='_blank'>4</a>
-        <a href='${GoogleUSpage5}' target='_blank'>5</a>
-        <a href='${GoogleUSpage6}' target='_blank'>6</a>
-        <a href='${GoogleUSpage7}' target='_blank'>7</a>
-        <a href='${GoogleUSpage8}' target='_blank'>8</a>
-        <a href='${GoogleUSpage9}' target='_blank'>9</a>
-        <a href='${GoogleUSpage10}' target='_blank'>10</a><br><br>
-        <a href='${GoogleUSsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
-        <a href='${GoogleUSsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
-        <a href='${GoogleUSsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
-        <a href='${GoogleUSsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
-        <a href='${directLink3}' target='_blank'>YouTube</a><br><br>
+                <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+                <strong>Limit Search Results to Country</strong></br></br>
+                <strong><a href='${GoogleUSCRpage1}' target='_blank'>Regular Google Search</a></strong><br>
+                <a href='${GoogleUSCRpage1}' target='_blank'>1</a>
+                <a href='${GoogleUSCRpage2}' target='_blank'>2</a>
+                <a href='${GoogleUSCRpage3}' target='_blank'>3</a>
+                <a href='${GoogleUSCRpage4}' target='_blank'>4</a>
+                <a href='${GoogleUSCRpage5}' target='_blank'>5</a>
+                <a href='${GoogleUSCRpage6}' target='_blank'>6</a>
+                <a href='${GoogleUSCRpage7}' target='_blank'>7</a>
+                <a href='${GoogleUSCRpage8}' target='_blank'>8</a>
+                <a href='${GoogleUSCRpage9}' target='_blank'>9</a>
+                <a href='${GoogleUSCRpage10}' target='_blank'>10</a><br><br>
+                <a href='${GoogleUSCRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+                <a href='${GoogleUSCRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+                <a href='${GoogleUSCRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+                <a href='${GoogleUSCRsearchTypeNews}' target='_blank'>Google News Search</a>
+                `;
 
-        <img src="images/divider.png" style="width:104px;"></a><br><br>
+                // Populate Section 2: Google Canada
+                sectionDetails2.innerHTML = `
+                <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
+                <strong>Simulate Search Results from Specified Location</strong></br></br>
+                <strong><a href='${GoogleCApage1}' target='_blank'>Regular Google Search</a></strong><br>
+                <a href='${GoogleCApage1}' target='_blank'>1</a>
+                <a href='${GoogleCApage2}' target='_blank'>2</a>
+                <a href='${GoogleCApage3}' target='_blank'>3</a>
+                <a href='${GoogleCApage4}' target='_blank'>4</a>
+                <a href='${GoogleCApage5}' target='_blank'>5</a>
+                <a href='${GoogleCApage6}' target='_blank'>6</a>
+                <a href='${GoogleCApage7}' target='_blank'>7</a>
+                <a href='${GoogleCApage8}' target='_blank'>8</a>
+                <a href='${GoogleCApage9}' target='_blank'>9</a>
+                <a href='${GoogleCApage10}' target='_blank'>10</a><br><br>
+                <a href='${GoogleCAsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+                <a href='${GoogleCAsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+                <a href='${GoogleCAsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+                <a href='${GoogleCAsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
+                <a href='${directLink6}' target='_blank'>YouTube</a><br><br>
 
-        <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
-        <strong>Limit Search Results to Country</strong></br></br>
-        <strong><a href='${GoogleUSCRpage1}' target='_blank'>Regular Google Search</a></strong><br>
-        <a href='${GoogleUSCRpage1}' target='_blank'>1</a>
-        <a href='${GoogleUSCRpage2}' target='_blank'>2</a>
-        <a href='${GoogleUSCRpage3}' target='_blank'>3</a>
-        <a href='${GoogleUSCRpage4}' target='_blank'>4</a>
-        <a href='${GoogleUSCRpage5}' target='_blank'>5</a>
-        <a href='${GoogleUSCRpage6}' target='_blank'>6</a>
-        <a href='${GoogleUSCRpage7}' target='_blank'>7</a>
-        <a href='${GoogleUSCRpage8}' target='_blank'>8</a>
-        <a href='${GoogleUSCRpage9}' target='_blank'>9</a>
-        <a href='${GoogleUSCRpage10}' target='_blank'>10</a><br><br>
-        <a href='${GoogleUSCRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
-        <a href='${GoogleUSCRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
-        <a href='${GoogleUSCRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
-        <a href='${GoogleUSCRsearchTypeNews}' target='_blank'>Google News Search</a>
-        `;
+                <img src="images/divider.png" style="width:104px;"></a><br><br>
 
-            // Populate Section 2: Google Canada
-            sectionDetails2.innerHTML = `
-        <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
-        <strong>Simulate Search Results from Specified Location</strong></br></br>
-        <strong><a href='${GoogleCApage1}' target='_blank'>Regular Google Search</a></strong><br>
-        <a href='${GoogleCApage1}' target='_blank'>1</a>
-        <a href='${GoogleCApage2}' target='_blank'>2</a>
-        <a href='${GoogleCApage3}' target='_blank'>3</a>
-        <a href='${GoogleCApage4}' target='_blank'>4</a>
-        <a href='${GoogleCApage5}' target='_blank'>5</a>
-        <a href='${GoogleCApage6}' target='_blank'>6</a>
-        <a href='${GoogleCApage7}' target='_blank'>7</a>
-        <a href='${GoogleCApage8}' target='_blank'>8</a>
-        <a href='${GoogleCApage9}' target='_blank'>9</a>
-        <a href='${GoogleCApage10}' target='_blank'>10</a><br><br>
-        <a href='${GoogleCAsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
-        <a href='${GoogleCAsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
-        <a href='${GoogleCAsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
-        <a href='${GoogleCAsearchTypeNews}' target='_blank'>Google News Search</a><br><br>
-        <a href='${directLink6}' target='_blank'>YouTube</a><br><br>
+                <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+                <strong>Limit Search Results to Country</strong></br></br>
+                <strong><a href='${GoogleCACRpage1}' target='_blank'>Regular Google Search</a></strong><br>
+                <a href='${GoogleCACRpage1}' target='_blank'>1</a>
+                <a href='${GoogleCACRpage2}' target='_blank'>2</a>
+                <a href='${GoogleCACRpage3}' target='_blank'>3</a>
+                <a href='${GoogleCACRpage4}' target='_blank'>4</a>
+                <a href='${GoogleCACRpage5}' target='_blank'>5</a>
+                <a href='${GoogleCACRpage6}' target='_blank'>6</a>
+                <a href='${GoogleCACRpage7}' target='_blank'>7</a>
+                <a href='${GoogleCACRpage8}' target='_blank'>8</a>
+                <a href='${GoogleCACRpage9}' target='_blank'>9</a>
+                <a href='${GoogleCACRpage10}' target='_blank'>10</a><br><br>
+                <a href='${GoogleCACRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
+                <a href='${GoogleCACRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
+                <a href='${GoogleCACRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
+                <a href='${GoogleCACRsearchTypeNews}' target='_blank'>Google News Search</a>
+                `;
 
-        <img src="images/divider.png" style="width:104px;"></a><br><br>
+                // Populate Section 3: Yandex
+                sectionDetails3.innerHTML = `
+                <a href="https://yandex.com/tune/search" target="_blank"><img src="images/safesearch.png" style="height:26px;"></a><br><br>
+                <a href="https://yandex.com/tune/geo/" target="_blank"><img src="images/region.png" style="height:26px;"></a><br><br>
+                <strong><a href='${YandexsearchTypeRegular}' target='_blank'>Regular Yandex Search</a></strong><br><br>
+                <a href='${YandexsearchTypeImage}' target='_blank'>Yandex Image Search</a><br><br>
+                <a href='${YandexsearchTypeVideos}' target='_blank'>Yandex Videos Search</a>
+                `;
 
-        <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
-        <strong>Limit Search Results to Country</strong></br></br>
-        <strong><a href='${GoogleCACRpage1}' target='_blank'>Regular Google Search</a></strong><br>
-        <a href='${GoogleCACRpage1}' target='_blank'>1</a>
-        <a href='${GoogleCACRpage2}' target='_blank'>2</a>
-        <a href='${GoogleCACRpage3}' target='_blank'>3</a>
-        <a href='${GoogleCACRpage4}' target='_blank'>4</a>
-        <a href='${GoogleCACRpage5}' target='_blank'>5</a>
-        <a href='${GoogleCACRpage6}' target='_blank'>6</a>
-        <a href='${GoogleCACRpage7}' target='_blank'>7</a>
-        <a href='${GoogleCACRpage8}' target='_blank'>8</a>
-        <a href='${GoogleCACRpage9}' target='_blank'>9</a>
-        <a href='${GoogleCACRpage10}' target='_blank'>10</a><br><br>
-        <a href='${GoogleCACRsearchTypeImage}' target='_blank'>Google Image Search</a><br><br>
-        <a href='${GoogleCACRsearchTypeVideos}' target='_blank'>Google Videos Search</a><br><br>
-        <a href='${GoogleCACRsearchTypeShopping}' target='_blank'>Google Shopping Search</a><br><br>
-        <a href='${GoogleCACRsearchTypeNews}' target='_blank'>Google News Search</a>
-        `;
+                // Populate Section 4: Bing
+                sectionDetails4.innerHTML = `
+                <a href="https://www.bing.com/account?adlt_set=off&cc=us" target="_blank"><img src="images/safesearchregion.png" style="height:26px;"></a><br><br>
+                <strong><a href='${BingsearchTypeRegular}' target='_blank'>Regular Bing Search</a></strong><br><br>
+                <a href='${BingsearchTypeImage}' target='_blank'>Bing Image Search</a><br><br>
+                <a href='${BingsearchTypeVideos}' target='_blank'>Bing Videos Search</a><br><br>
+                <a href='${BingsearchTypeNews}' target='_blank'>Bing News Search</a>
+                `;
 
-            // Populate Section 3: Yandex
-            sectionDetails3.innerHTML = `
-        <a href="https://yandex.com/tune/search" target="_blank"><img src="images/safesearch.png" style="height:26px;"></a><br><br>
-        <a href="https://yandex.com/tune/geo/" target="_blank"><img src="images/region.png" style="height:26px;"></a><br><br>
-        <strong><a href='${YandexsearchTypeRegular}' target='_blank'>Regular Yandex Search</a></strong><br><br>
-        <a href='${YandexsearchTypeImage}' target='_blank'>Yandex Image Search</a><br><br>
-        <a href='${YandexsearchTypeVideos}' target='_blank'>Yandex Videos Search</a>
-        `;
+                // Populate Section 5: Baidu
+                sectionDetails5.innerHTML = `
+                <strong><a href='${BaidusearchTypeRegular}' target='_blank'>Regular Baidu Search</a></strong><br><br>
+                <a href='${BaidusearchTypeImage}' target='_blank'>Baidu Image Search</a><br><br>
+                <a href='${BaidusearchTypeVideos}' target='_blank'>Baidu Videos Search</a><br><br>
+                <a href='${BaidusearchTypeNews}' target='_blank'>Baidu News Search</a>
+                `;
 
-            // Populate Section 4: Bing
-            sectionDetails4.innerHTML = `
-        <a href="https://www.bing.com/account?adlt_set=off&cc=us" target="_blank"><img src="images/safesearchregion.png" style="height:26px;"></a><br><br>
-        <strong><a href='${BingsearchTypeRegular}' target='_blank'>Regular Bing Search</a></strong><br><br>
-        <a href='${BingsearchTypeImage}' target='_blank'>Bing Image Search</a><br><br>
-        <a href='${BingsearchTypeVideos}' target='_blank'>Bing Videos Search</a><br><br>
-        <a href='${BingsearchTypeNews}' target='_blank'>Bing News Search</a>
-        `;
+                // After pressing search button, show all sections (collapsed)
+                document.getElementById("section1").style.display = "block";
+                document.getElementById("section2").style.display = "block";
+                document.getElementById("section3").style.display = "block";
+                document.getElementById("section4").style.display = "block";
+                document.getElementById("section5").style.display = "block";
+                section1.open = false;
+                section2.open = false;
+                section3.open = false;
+                section4.open = false;
+                section5.open = false;
 
-            // Populate Section 5: Baidu
-            sectionDetails5.innerHTML = `
-        <strong><a href='${BaidusearchTypeRegular}' target='_blank'>Regular Baidu Search</a></strong><br><br>
-        <a href='${BaidusearchTypeImage}' target='_blank'>Baidu Image Search</a><br><br>
-        <a href='${BaidusearchTypeVideos}' target='_blank'>Baidu Videos Search</a><br><br>
-        <a href='${BaidusearchTypeNews}' target='_blank'>Baidu News Search</a>
-        `;
+            }
+    }
 
-            // After pressing search button, show all sections (collapsed)
-            const section1 = document.getElementById('section1');
-            const section2 = document.getElementById('section2');
-            const section3 = document.getElementById('section3');
-            const section4 = document.getElementById('section4');
-            const section5 = document.getElementById('section5');
-            document.getElementById("section1").style.display = "block";
-            document.getElementById("section2").style.display = "block";
-            document.getElementById("section3").style.display = "block";
-            document.getElementById("section4").style.display = "block";
-            document.getElementById("section5").style.display = "block";
-            section1.open = false;
-            section2.open = false;
-            section3.open = false;
-            section4.open = false;
-            section5.open = false;
+    // Trigger search on button click
+    document.getElementById('searchBtn').addEventListener('click', performSearch);
+
+    // Trigger search on pressing Enter in the textbox
+    document.getElementById('textInput1').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            performSearch();
         }
     });
 
@@ -620,6 +626,7 @@
         // Add event listeners for country flag buttons
         usFlagButton.addEventListener('click', () => {
             newsLinks.innerHTML = `
+            <img src="images/divider.png" style="width:104px;"><br><br>
             <a href="https://news.google.com/?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: Home</a><br><br>
             <a href="https://news.google.com/topics/CAAqIggKIhxDQkFTRHdvSkwyMHZNRGxqTjNjd0VnSmxiaWdBUAE?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: United States</a><br><br>
             <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVlZUR2dKVlV5Z0FQAQ?hl=en-US&gl=US&ceid=US:en" target="_blank">Google News: World</a><br><br>
@@ -635,6 +642,7 @@
 
         caFlagButton.addEventListener('click', () => {
             newsLinks.innerHTML = `
+            <img src="images/divider.png" style="width:104px;"><br><br>
             <a href="https://news.google.com/?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Home</a><br><br>
             <a href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSkwyMHZNR1F3TmpCbkVnVmxiaTFIUWlnQVAB?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: Canada</a><br><br>
             <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVU5CR2dKRFFTZ0FQAQ?hl=en-CA&gl=CA&ceid=CA:en" target="_blank">Google News: World</a><br><br>
@@ -651,6 +659,7 @@
 
         ukFlagButton.addEventListener('click', () => {
             newsLinks.innerHTML = `
+            <img src="images/divider.png" style="width:104px;"><br><br>
             <a href="https://news.google.com/?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: Home</a><br><br>
             <a href="https://news.google.com/topics/CAAqJQgKIh9DQkFTRVFvSUwyMHZNRGR6YzJNU0JXVnVMVWRDS0FBUAE?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: United Kingdom</a><br><br>
             <a href="https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRGx1YlY4U0JXVnVMVWRDR2dKSFFpZ0FQAQ?hl=en-GB&gl=GB&ceid=GB:en" target="_blank">Google News: World</a><br><br>
