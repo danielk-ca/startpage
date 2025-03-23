@@ -165,20 +165,20 @@
 </div>
 </br>
 
-<!-- Search Result: Google Canada -->
-<details id="section2" class="hidden">
-    <summary>
-        <img src="images/googlecanada.png" style="height:26px;">
-    </summary>
-    <div class="details-info" id="sectionDetails2"></div>
-</details>
-
 <!-- Search Result: Google United States -->
 <details id="section1" class="hidden">
     <summary>
         <img src="images/googleus.png" style="height:26px;">
     </summary>
     <div class="details-info" id="sectionDetails1"></div>
+</details>
+
+<!-- Search Result: Google Canada -->
+<details id="section2" class="hidden">
+    <summary>
+        <img src="images/googlecanada.png" style="height:26px;">
+    </summary>
+    <div class="details-info" id="sectionDetails2"></div>
 </details>
 
 <!-- Search Result: Google United Kingdom -->
@@ -474,7 +474,7 @@
                 sectionDetails1.innerHTML = `
                 <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
                 <strong>Simulate Search Results from Specified Location</strong></br></br>
-                <a href='${GoogleUSpage1}' target='_blank'>Regular Google Search</a><br>
+                <a href='${GoogleUSpage1}' target="_blank"><img src="images/googlelogo.png" style="height:26px;"></a><br>
                 <a href='${GoogleUSpage1}' target='_blank'>1</a>
                 <a href='${GoogleUSpage2}' target='_blank'>2</a>
                 <a href='${GoogleUSpage3}' target='_blank'>3</a>
@@ -506,7 +506,7 @@
                 sectionDetails2.innerHTML = `
                 <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
                 <strong>Simulate Search Results from Specified Location</strong></br></br>
-                <a href='${GoogleCApage1}' target='_blank'>Regular Google Search</a><br>
+                <a href='${GoogleCApage1}' target="_blank"><img src="images/googlelogo.png" style="height:26px;"></a><br>
                 <a href='${GoogleCApage1}' target='_blank'>1</a>
                 <a href='${GoogleCApage2}' target='_blank'>2</a>
                 <a href='${GoogleCApage3}' target='_blank'>3</a>
@@ -538,7 +538,7 @@
                 sectionDetails3.innerHTML = `
                 <img src="images/searchlocation.svg" style="width:26px"></a>&nbsp;
                 <strong>Simulate Search Results from Specified Location</strong></br></br>
-                <a href='${GoogleUKpage1}' target='_blank'>Regular Google Search</a><br>
+                <a href='${GoogleUKpage1}' target="_blank"><img src="images/googlelogo.png" style="height:26px;"></a><br>
                 <a href='${GoogleUKpage1}' target='_blank'>1</a>
                 <a href='${GoogleUKpage2}' target='_blank'>2</a>
                 <a href='${GoogleUKpage3}' target='_blank'>3</a>
@@ -570,7 +570,8 @@
                 sectionDetails4.innerHTML = `
                 <a href="https://yandex.com/tune/search" target="_blank"><img src="images/safesearch.png" style="height:26px;"></a><br><br>
                 <a href="https://yandex.com/tune/geo/" target="_blank"><img src="images/region.png" style="height:26px;"></a><br><br>
-                <strong><a href='${YandexsearchTypeRegular}' target='_blank'>Regular Yandex Search</a></strong><br><br>
+                <img src="images/divider.png" style="width:104px"></a><br><br>
+                <a href='${YandexsearchTypeRegular}' target="_blank"><img src="images/yandex.png" style="height:26px;"></a><br><br>
                 <a href='${YandexsearchTypeImage}' target='_blank'>Yandex Image Search</a><br><br>
                 <a href='${YandexsearchTypeVideos}' target='_blank'>Yandex Videos Search</a>
                 `;
@@ -578,7 +579,8 @@
                 // Populate Section 4: Bing
                 sectionDetails5.innerHTML = `
                 <a href="https://www.bing.com/account?adlt_set=off&cc=us" target="_blank"><img src="images/safesearchregion.png" style="height:26px;"></a><br><br>
-                <strong><a href='${BingsearchTypeRegular}' target='_blank'>Regular Bing Search</a></strong><br><br>
+                <img src="images/divider.png" style="width:104px"></a><br><br>
+                <a href='${BingsearchTypeRegular}' target="_blank"><img src="images/bing.png" style="height:26px;"></a><br><br>
                 <a href='${BingsearchTypeImage}' target='_blank'>Bing Image Search</a><br><br>
                 <a href='${BingsearchTypeVideos}' target='_blank'>Bing Videos Search</a><br><br>
                 <a href='${BingsearchTypeNews}' target='_blank'>Bing News Search</a>
@@ -586,7 +588,7 @@
 
                 // Populate Section 5: Baidu
                 sectionDetails6.innerHTML = `
-                <strong><a href='${BaidusearchTypeRegular}' target='_blank'>Regular Baidu Search</a></strong><br><br>
+                <a href='${BaidusearchTypeRegular}' target="_blank"><img src="images/baidu.png" style="height:26px;"></a><br><br>
                 <a href='${BaidusearchTypeImage}' target='_blank'>Baidu Image Search</a><br><br>
                 <a href='${BaidusearchTypeVideos}' target='_blank'>Baidu Videos Search</a><br><br>
                 <a href='${BaidusearchTypeNews}' target='_blank'>Baidu News Search</a>
@@ -599,8 +601,8 @@
                 document.getElementById("section4").style.display = "block";
                 document.getElementById("section5").style.display = "block";
                 document.getElementById("section6").style.display = "block";
-                section2.open = true;
-                section1.open = false;
+                section1.open = true;
+                section2.open = false;
                 section3.open = false;
                 section4.open = false;
                 section5.open = false;
