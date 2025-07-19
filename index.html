@@ -332,96 +332,183 @@
 
                 // Define Variables for Google United States
 
-                let directLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&safe=off';
-                let directLink2 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=US';
+                let GoogleUSLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&safe=off';
+                let GoogleUSLink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw&gl=us&cr=countryUS&safe=off';
+                let GoogleUSLink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=US';
 
-                var GoogleUSpage1 = `${directLink1}`;
-                var GoogleUSpage2 = `${directLink1}&start=10`;
-                var GoogleUSpage3 = `${directLink1}&start=20`;
-                var GoogleUSpage4 = `${directLink1}&start=30`;
-                var GoogleUSpage5 = `${directLink1}&start=40`;
-                var GoogleUSpage6 = `${directLink1}&start=50`;
-                var GoogleUSpage7 = `${directLink1}&start=60`;
-                var GoogleUSpage8 = `${directLink1}&start=70`;
-                var GoogleUSpage9 = `${directLink1}&start=80`;
-                var GoogleUSpage10 = `${directLink1}&start=90`;
+                var GoogleUSpage1 = `${GoogleUSLink1}`;
+                var GoogleUSpage2 = `${GoogleUSLink1}&start=10`;
+                var GoogleUSpage3 = `${GoogleUSLink1}&start=20`;
+                var GoogleUSpage4 = `${GoogleUSLink1}&start=30`;
+                var GoogleUSpage5 = `${GoogleUSLink1}&start=40`;
+                var GoogleUSpage6 = `${GoogleUSLink1}&start=50`;
+                var GoogleUSpage7 = `${GoogleUSLink1}&start=60`;
+                var GoogleUSpage8 = `${GoogleUSLink1}&start=70`;
+                var GoogleUSpage9 = `${GoogleUSLink1}&start=80`;
+                var GoogleUSpage10 = `${GoogleUSLink1}&start=90`;
 
-                var GoogleUSNewspage1 = `${directLink1}&tbm=nws`;
-                var GoogleUSNewspage2 = `${directLink1}&tbm=nws&start=10`;
-                var GoogleUSNewspage3 = `${directLink1}&tbm=nws&start=20`;
-                var GoogleUSNewspage4 = `${directLink1}&tbm=nws&start=30`;
-                var GoogleUSNewspage5 = `${directLink1}&tbm=nws&start=40`;
-                var GoogleUSNewspage6 = `${directLink1}&tbm=nws&start=50`;
-                var GoogleUSNewspage7 = `${directLink1}&tbm=nws&start=60`;
-                var GoogleUSNewspage8 = `${directLink1}&tbm=nws&start=70`;
-                var GoogleUSNewspage9 = `${directLink1}&tbm=nws&start=80`;
-                var GoogleUSNewspage10 = `${directLink1}&tbm=nws&start=90`;
+                var GoogleUSNewspage1 = `${GoogleUSLink1}&tbm=nws`;
+                var GoogleUSNewspage2 = `${GoogleUSLink1}&tbm=nws&start=10`;
+                var GoogleUSNewspage3 = `${GoogleUSLink1}&tbm=nws&start=20`;
+                var GoogleUSNewspage4 = `${GoogleUSLink1}&tbm=nws&start=30`;
+                var GoogleUSNewspage5 = `${GoogleUSLink1}&tbm=nws&start=40`;
+                var GoogleUSNewspage6 = `${GoogleUSLink1}&tbm=nws&start=50`;
+                var GoogleUSNewspage7 = `${GoogleUSLink1}&tbm=nws&start=60`;
+                var GoogleUSNewspage8 = `${GoogleUSLink1}&tbm=nws&start=70`;
+                var GoogleUSNewspage9 = `${GoogleUSLink1}&tbm=nws&start=80`;
+                var GoogleUSNewspage10 = `${GoogleUSLink1}&tbm=nws&start=90`;
 
-                var GoogleUSsearchTypeImage = `${directLink1}&tbm=isch`;
-                var GoogleUSsearchTypeVideos = `${directLink1}&tbm=vid`;
-                var GoogleUSsearchTypeShopping = `${directLink1}&tbm=shop`;
+                var GoogleUSsearchTypeImage = `${GoogleUSLink1}&tbm=isch`;
+                var GoogleUSsearchTypeVideos = `${GoogleUSLink1}&tbm=vid`;
+                var GoogleUSsearchTypeShopping = `${GoogleUSLink1}&tbm=shop`;
+
+                    // Define Variables for Google United States: Limit Search Results to Country
+
+                    var CRGoogleUSpage1 = `${GoogleUSLink2}`;
+                    var CRGoogleUSpage2 = `${GoogleUSLink2}&start=10`;
+                    var CRGoogleUSpage3 = `${GoogleUSLink2}&start=20`;
+                    var CRGoogleUSpage4 = `${GoogleUSLink2}&start=30`;
+                    var CRGoogleUSpage5 = `${GoogleUSLink2}&start=40`;
+                    var CRGoogleUSpage6 = `${GoogleUSLink2}&start=50`;
+                    var CRGoogleUSpage7 = `${GoogleUSLink2}&start=60`;
+                    var CRGoogleUSpage8 = `${GoogleUSLink2}&start=70`;
+                    var CRGoogleUSpage9 = `${GoogleUSLink2}&start=80`;
+                    var CRGoogleUSpage10 = `${GoogleUSLink2}&start=90`;
+
+                    var CRGoogleUSNewspage1 = `${GoogleUSLink2}&tbm=nws`;
+                    var CRGoogleUSNewspage2 = `${GoogleUSLink2}&tbm=nws&start=10`;
+                    var CRGoogleUSNewspage3 = `${GoogleUSLink2}&tbm=nws&start=20`;
+                    var CRGoogleUSNewspage4 = `${GoogleUSLink2}&tbm=nws&start=30`;
+                    var CRGoogleUSNewspage5 = `${GoogleUSLink2}&tbm=nws&start=40`;
+                    var CRGoogleUSNewspage6 = `${GoogleUSLink2}&tbm=nws&start=50`;
+                    var CRGoogleUSNewspage7 = `${GoogleUSLink2}&tbm=nws&start=60`;
+                    var CRGoogleUSNewspage8 = `${GoogleUSLink2}&tbm=nws&start=70`;
+                    var CRGoogleUSNewspage9 = `${GoogleUSLink2}&tbm=nws&start=80`;
+                    var CRGoogleUSNewspage10 = `${GoogleUSLink2}&tbm=nws&start=90`;
+
+                    var CRGoogleUSsearchTypeImage = `${GoogleUSLink2}&tbm=isch`;
+                    var CRGoogleUSsearchTypeVideos = `${GoogleUSLink2}&tbm=vid`;
+                    var CRGoogleUSsearchTypeShopping = `${GoogleUSLink2}&tbm=shop`;
 
                 // Define Variables for Google Canada
 
-                let directLink3 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIVQmFycmllLE9udGFyaW8sQ2FuYWRh&gl=ca&safe=off';
-                let directLink4 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=CA';
+                let GoogleCALink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIVQmFycmllLE9udGFyaW8sQ2FuYWRh&gl=ca&safe=off';
+                let GoogleCALink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIVQmFycmllLE9udGFyaW8sQ2FuYWRh&gl=ca&cr=countryCA&safe=off';
+                let GoogleCALink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=CA';
 
-                var GoogleCApage1 = `${directLink3}`;
-                var GoogleCApage2 = `${directLink3}&start=10`;
-                var GoogleCApage3 = `${directLink3}&start=20`;
-                var GoogleCApage4 = `${directLink3}&start=30`;
-                var GoogleCApage5 = `${directLink3}&start=40`;
-                var GoogleCApage6 = `${directLink3}&start=50`;
-                var GoogleCApage7 = `${directLink3}&start=60`;
-                var GoogleCApage8 = `${directLink3}&start=70`;
-                var GoogleCApage9 = `${directLink3}&start=80`;
-                var GoogleCApage10 = `${directLink3}&start=90`;
+                var GoogleCApage1 = `${GoogleCALink1}`;
+                var GoogleCApage2 = `${GoogleCALink1}&start=10`;
+                var GoogleCApage3 = `${GoogleCALink1}&start=20`;
+                var GoogleCApage4 = `${GoogleCALink1}&start=30`;
+                var GoogleCApage5 = `${GoogleCALink1}&start=40`;
+                var GoogleCApage6 = `${GoogleCALink1}&start=50`;
+                var GoogleCApage7 = `${GoogleCALink1}&start=60`;
+                var GoogleCApage8 = `${GoogleCALink1}&start=70`;
+                var GoogleCApage9 = `${GoogleCALink1}&start=80`;
+                var GoogleCApage10 = `${GoogleCALink1}&start=90`;
 
-                var GoogleCANewspage1 = `${directLink3}&tbm=nws`;
-                var GoogleCANewspage2 = `${directLink3}&tbm=nws&start=10`;
-                var GoogleCANewspage3 = `${directLink3}&tbm=nws&start=20`;
-                var GoogleCANewspage4 = `${directLink3}&tbm=nws&start=30`;
-                var GoogleCANewspage5 = `${directLink3}&tbm=nws&start=40`;
-                var GoogleCANewspage6 = `${directLink3}&tbm=nws&start=50`;
-                var GoogleCANewspage7 = `${directLink3}&tbm=nws&start=60`;
-                var GoogleCANewspage8 = `${directLink3}&tbm=nws&start=70`;
-                var GoogleCANewspage9 = `${directLink3}&tbm=nws&start=80`;
-                var GoogleCANewspage10 = `${directLink3}&tbm=nws&start=90`;
+                var GoogleCANewspage1 = `${GoogleCALink1}&tbm=nws`;
+                var GoogleCANewspage2 = `${GoogleCALink1}&tbm=nws&start=10`;
+                var GoogleCANewspage3 = `${GoogleCALink1}&tbm=nws&start=20`;
+                var GoogleCANewspage4 = `${GoogleCALink1}&tbm=nws&start=30`;
+                var GoogleCANewspage5 = `${GoogleCALink1}&tbm=nws&start=40`;
+                var GoogleCANewspage6 = `${GoogleCALink1}&tbm=nws&start=50`;
+                var GoogleCANewspage7 = `${GoogleCALink1}&tbm=nws&start=60`;
+                var GoogleCANewspage8 = `${GoogleCALink1}&tbm=nws&start=70`;
+                var GoogleCANewspage9 = `${GoogleCALink1}&tbm=nws&start=80`;
+                var GoogleCANewspage10 = `${GoogleCALink1}&tbm=nws&start=90`;
 
-                var GoogleCAsearchTypeImage = `${directLink3}&tbm=isch`;
-                var GoogleCAsearchTypeVideos = `${directLink3}&tbm=vid`;
-                var GoogleCAsearchTypeShopping = `${directLink3}&tbm=shop`;
+                var GoogleCAsearchTypeImage = `${GoogleCALink1}&tbm=isch`;
+                var GoogleCAsearchTypeVideos = `${GoogleCALink1}&tbm=vid`;
+                var GoogleCAsearchTypeShopping = `${GoogleCALink1}&tbm=shop`;
+
+                    // Define Variables for Google Canada: Limit Search Results to Country
+
+                	var CRGoogleCApage1 = `${GoogleCALink2}`;
+                	var CRGoogleCApage2 = `${GoogleCALink2}&start=10`;
+                	var CRGoogleCApage3 = `${GoogleCALink2}&start=20`;
+                	var CRGoogleCApage4 = `${GoogleCALink2}&start=30`;
+                	var CRGoogleCApage5 = `${GoogleCALink2}&start=40`;
+                	var CRGoogleCApage6 = `${GoogleCALink2}&start=50`;
+                	var CRGoogleCApage7 = `${GoogleCALink2}&start=60`;
+                	var CRGoogleCApage8 = `${GoogleCALink2}&start=70`;
+                	var CRGoogleCApage9 = `${GoogleCALink2}&start=80`;
+                	var CRGoogleCApage10 = `${GoogleCALink2}&start=90`;
+
+                	var CRGoogleCANewspage1 = `${GoogleCALink2}&tbm=nws`;
+                	var CRGoogleCANewspage2 = `${GoogleCALink2}&tbm=nws&start=10`;
+                	var CRGoogleCANewspage3 = `${GoogleCALink2}&tbm=nws&start=20`;
+                	var CRGoogleCANewspage4 = `${GoogleCALink2}&tbm=nws&start=30`;
+                	var CRGoogleCANewspage5 = `${GoogleCALink2}&tbm=nws&start=40`;
+                	var CRGoogleCANewspage6 = `${GoogleCALink2}&tbm=nws&start=50`;
+                	var CRGoogleCANewspage7 = `${GoogleCALink2}&tbm=nws&start=60`;
+                	var CRGoogleCANewspage8 = `${GoogleCALink2}&tbm=nws&start=70`;
+                	var CRGoogleCANewspage9 = `${GoogleCALink2}&tbm=nws&start=80`;
+                	var CRGoogleCANewspage10 = `${GoogleCALink2}&tbm=nws&start=90`;
+
+                	var CRGoogleCAsearchTypeImage = `${GoogleCALink2}&tbm=isch`;
+                	var CRGoogleCAsearchTypeVideos = `${GoogleCALink2}&tbm=vid`;
+                	var CRGoogleCAsearchTypeShopping = `${GoogleCALink2}&tbm=shop`;
 
                 // Define Variables for Google United Kingdom
 
-                let directLink5 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20&gl=uk&safe=off';
-                let directLink6 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=GB';
+                let GoogleUKLink1 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20&gl=uk&safe=off';
+                let GoogleUKLink2 = 'https://www.google.com/search?q=' + queryString + '&uule=w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20&gl=uk&cr=countryUK&safe=off';
+                let GoogleUKLink3 = 'https://www.youtube.com/results?search_query=' + queryString + '&persist_gl=1&gl=GB';
 
-                var GoogleUKpage1 = `${directLink5}`;
-                var GoogleUKpage2 = `${directLink5}&start=10`;
-                var GoogleUKpage3 = `${directLink5}&start=20`;
-                var GoogleUKpage4 = `${directLink5}&start=30`;
-                var GoogleUKpage5 = `${directLink5}&start=40`;
-                var GoogleUKpage6 = `${directLink5}&start=50`;
-                var GoogleUKpage7 = `${directLink5}&start=60`;
-                var GoogleUKpage8 = `${directLink5}&start=70`;
-                var GoogleUKpage9 = `${directLink5}&start=80`;
-                var GoogleUKpage10 = `${directLink5}&start=90`;
+                var GoogleUKpage1 = `${GoogleUKLink1}`;
+                var GoogleUKpage2 = `${GoogleUKLink1}&start=10`;
+                var GoogleUKpage3 = `${GoogleUKLink1}&start=20`;
+                var GoogleUKpage4 = `${GoogleUKLink1}&start=30`;
+                var GoogleUKpage5 = `${GoogleUKLink1}&start=40`;
+                var GoogleUKpage6 = `${GoogleUKLink1}&start=50`;
+                var GoogleUKpage7 = `${GoogleUKLink1}&start=60`;
+                var GoogleUKpage8 = `${GoogleUKLink1}&start=70`;
+                var GoogleUKpage9 = `${GoogleUKLink1}&start=80`;
+                var GoogleUKpage10 = `${GoogleUKLink1}&start=90`;
 
-                var GoogleUKNewspage1 = `${directLink5}&tbm=nws`;
-                var GoogleUKNewspage2 = `${directLink5}&tbm=nws&start=10`;
-                var GoogleUKNewspage3 = `${directLink5}&tbm=nws&start=20`;
-                var GoogleUKNewspage4 = `${directLink5}&tbm=nws&start=30`;
-                var GoogleUKNewspage5 = `${directLink5}&tbm=nws&start=40`;
-                var GoogleUKNewspage6 = `${directLink5}&tbm=nws&start=50`;
-                var GoogleUKNewspage7 = `${directLink5}&tbm=nws&start=60`;
-                var GoogleUKNewspage8 = `${directLink5}&tbm=nws&start=70`;
-                var GoogleUKNewspage9 = `${directLink5}&tbm=nws&start=80`;
-                var GoogleUKNewspage10 = `${directLink5}&tbm=nws&start=90`;
+                var GoogleUKNewspage1 = `${GoogleUKLink1}&tbm=nws`;
+                var GoogleUKNewspage2 = `${GoogleUKLink1}&tbm=nws&start=10`;
+                var GoogleUKNewspage3 = `${GoogleUKLink1}&tbm=nws&start=20`;
+                var GoogleUKNewspage4 = `${GoogleUKLink1}&tbm=nws&start=30`;
+                var GoogleUKNewspage5 = `${GoogleUKLink1}&tbm=nws&start=40`;
+                var GoogleUKNewspage6 = `${GoogleUKLink1}&tbm=nws&start=50`;
+                var GoogleUKNewspage7 = `${GoogleUKLink1}&tbm=nws&start=60`;
+                var GoogleUKNewspage8 = `${GoogleUKLink1}&tbm=nws&start=70`;
+                var GoogleUKNewspage9 = `${GoogleUKLink1}&tbm=nws&start=80`;
+                var GoogleUKNewspage10 = `${GoogleUKLink1}&tbm=nws&start=90`;
 
-                var GoogleUKsearchTypeImage = `${directLink5}&tbm=isch`;
-                var GoogleUKsearchTypeVideos = `${directLink5}&tbm=vid`;
-                var GoogleUKsearchTypeShopping = `${directLink5}&tbm=shop`;
+                var GoogleUKsearchTypeImage = `${GoogleUKLink1}&tbm=isch`;
+                var GoogleUKsearchTypeVideos = `${GoogleUKLink1}&tbm=vid`;
+                var GoogleUKsearchTypeShopping = `${GoogleUKLink1}&tbm=shop`;
+
+                    // Define Variables for Google United Kingdom: Limit Search Results to Country
+
+                	var CRGoogleUKpage1 = `${GoogleUKLink2}`;
+                	var CRGoogleUKpage2 = `${GoogleUKLink2}&start=10`;
+                	var CRGoogleUKpage3 = `${GoogleUKLink2}&start=20`;
+                	var CRGoogleUKpage4 = `${GoogleUKLink2}&start=30`;
+                	var CRGoogleUKpage5 = `${GoogleUKLink2}&start=40`;
+                	var CRGoogleUKpage6 = `${GoogleUKLink2}&start=50`;
+                	var CRGoogleUKpage7 = `${GoogleUKLink2}&start=60`;
+                	var CRGoogleUKpage8 = `${GoogleUKLink2}&start=70`;
+                	var CRGoogleUKpage9 = `${GoogleUKLink2}&start=80`;
+                	var CRGoogleUKpage10 = `${GoogleUKLink2}&start=90`;
+
+                	var CRGoogleUKNewspage1 = `${GoogleUKLink2}&tbm=nws`;
+                	var CRGoogleUKNewspage2 = `${GoogleUKLink2}&tbm=nws&start=10`;
+                	var CRGoogleUKNewspage3 = `${GoogleUKLink2}&tbm=nws&start=20`;
+                	var CRGoogleUKNewspage4 = `${GoogleUKLink2}&tbm=nws&start=30`;
+                	var CRGoogleUKNewspage5 = `${GoogleUKLink2}&tbm=nws&start=40`;
+                	var CRGoogleUKNewspage6 = `${GoogleUKLink2}&tbm=nws&start=50`;
+                	var CRGoogleUKNewspage7 = `${GoogleUKLink2}&tbm=nws&start=60`;
+                	var CRGoogleUKNewspage8 = `${GoogleUKLink2}&tbm=nws&start=70`;
+                	var CRGoogleUKNewspage9 = `${GoogleUKLink2}&tbm=nws&start=80`;
+                	var CRGoogleUKNewspage10 = `${GoogleUKLink2}&tbm=nws&start=90`;
+
+                	var CRGoogleUKsearchTypeImage = `${GoogleUKLink2}&tbm=isch`;
+                	var CRGoogleUKsearchTypeVideos = `${GoogleUKLink2}&tbm=vid`;
+                	var CRGoogleUKsearchTypeShopping = `${GoogleUKLink2}&tbm=shop`;
 
                 // Define Variables for Yandex
 
@@ -491,8 +578,41 @@
                 <a href='${GoogleUSsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
                 <a href='${GoogleUSsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
                 <a href='${GoogleUSsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a><br><br>
-                <a href='${directLink2}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
-                <a href='${directLink2}' target='_blank'><strong>YouTube</strong></a>
+                <a href='${GoogleUSLink3}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
+                <a href='${GoogleUSLink3}' target='_blank'><strong>YouTube</strong></a><br><br>
+                <img src="images/divider.png"</a><br><br>
+                <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+                <strong>Limit Search Results to Country</strong></br></br>
+                <a href='${CRGoogleUSpage1}' target="_blank"><img src="images/googleregular.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUSpage1}' target='_blank'><strong>Regular Google Search</strong></a><br>
+                <a href='${CRGoogleUSpage1}' target='_blank'>1</a>
+                <a href='${CRGoogleUSpage2}' target='_blank'>2</a>
+                <a href='${CRGoogleUSpage3}' target='_blank'>3</a>
+                <a href='${CRGoogleUSpage4}' target='_blank'>4</a>
+                <a href='${CRGoogleUSpage5}' target='_blank'>5</a>
+                <a href='${CRGoogleUSpage6}' target='_blank'>6</a>
+                <a href='${CRGoogleUSpage7}' target='_blank'>7</a>
+                <a href='${CRGoogleUSpage8}' target='_blank'>8</a>
+                <a href='${CRGoogleUSpage9}' target='_blank'>9</a>
+                <a href='${CRGoogleUSpage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleUSsearchTypeImage}' target="_blank"><img src="images/searchimage.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUSsearchTypeImage}' target='_blank'><strong>Google Image Search</strong></a><br><br>
+                <a href='${CRGoogleUSNewspage1}' target="_blank"><img src="images/searchnews.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUSNewspage1}' target='_blank'><strong>Google News Search</strong></a><br>
+                <a href='${CRGoogleUSNewspage1}' target='_blank'>1</a>
+                <a href='${CRGoogleUSNewspage2}' target='_blank'>2</a>
+                <a href='${CRGoogleUSNewspage3}' target='_blank'>3</a>
+                <a href='${CRGoogleUSNewspage4}' target='_blank'>4</a>
+                <a href='${CRGoogleUSNewspage5}' target='_blank'>5</a>
+                <a href='${CRGoogleUSNewspage6}' target='_blank'>6</a>
+                <a href='${CRGoogleUSNewspage7}' target='_blank'>7</a>
+                <a href='${CRGoogleUSNewspage8}' target='_blank'>8</a>
+                <a href='${CRGoogleUSNewspage9}' target='_blank'>9</a>
+                <a href='${CRGoogleUSNewspage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleUSsearchTypeVideos}' target="_blank"><img src="images/searchvideo.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUSsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
+                <a href='${CRGoogleUSsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUSsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a>
                 `;
 
                 // Populate Section 2: Google Canada
@@ -529,8 +649,41 @@
                 <a href='${GoogleCAsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
                 <a href='${GoogleCAsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
                 <a href='${GoogleCAsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a><br><br>
-                <a href='${directLink4}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
-                <a href='${directLink4}' target='_blank'><strong>YouTube</strong></a>
+                <a href='${GoogleCALink3}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
+                <a href='${GoogleCALink3}' target='_blank'><strong>YouTube</strong></a><br><br>
+                <img src="images/divider.png"</a><br><br>
+                <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+                <strong>Limit Search Results to Country</strong></br></br>
+                <a href='${CRGoogleCApage1}' target="_blank"><img src="images/googleregular.png" style="width:26px"></a><br>
+                <a href='${CRGoogleCApage1}' target='_blank'><strong>Regular Google Search</strong></a><br>
+                <a href='${CRGoogleCApage1}' target='_blank'>1</a>
+                <a href='${CRGoogleCApage2}' target='_blank'>2</a>
+                <a href='${CRGoogleCApage3}' target='_blank'>3</a>
+                <a href='${CRGoogleCApage4}' target='_blank'>4</a>
+                <a href='${CRGoogleCApage5}' target='_blank'>5</a>
+                <a href='${CRGoogleCApage6}' target='_blank'>6</a>
+                <a href='${CRGoogleCApage7}' target='_blank'>7</a>
+                <a href='${CRGoogleCApage8}' target='_blank'>8</a>
+                <a href='${CRGoogleCApage9}' target='_blank'>9</a>
+                <a href='${CRGoogleCApage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleCAsearchTypeImage}' target="_blank"><img src="images/searchimage.png" style="width:26px"></a><br>
+                <a href='${CRGoogleCAsearchTypeImage}' target='_blank'><strong>Google Image Search</strong></a><br><br>
+                <a href='${CRGoogleCANewspage1}' target="_blank"><img src="images/searchnews.png" style="width:26px"></a><br>
+                <a href='${CRGoogleCANewspage1}' target='_blank'><strong>Google News Search</strong></a><br>
+                <a href='${CRGoogleCANewspage1}' target='_blank'>1</a>
+                <a href='${CRGoogleCANewspage2}' target='_blank'>2</a>
+                <a href='${CRGoogleCANewspage3}' target='_blank'>3</a>
+                <a href='${CRGoogleCANewspage4}' target='_blank'>4</a>
+                <a href='${CRGoogleCANewspage5}' target='_blank'>5</a>
+                <a href='${CRGoogleCANewspage6}' target='_blank'>6</a>
+                <a href='${CRGoogleCANewspage7}' target='_blank'>7</a>
+                <a href='${CRGoogleCANewspage8}' target='_blank'>8</a>
+                <a href='${CRGoogleCANewspage9}' target='_blank'>9</a>
+                <a href='${CRGoogleCANewspage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleCAsearchTypeVideos}' target="_blank"><img src="images/searchvideo.png" style="width:26px"></a><br>
+                <a href='${CRGoogleCAsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
+                <a href='${CRGoogleCAsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
+                <a href='${CRGoogleCAsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a>
                 `;
 
                 // Populate Section 3: Google United Kingdom
@@ -567,8 +720,41 @@
                 <a href='${GoogleUKsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
                 <a href='${GoogleUKsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
                 <a href='${GoogleUKsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a><br><br>
-                <a href='${directLink6}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
-                <a href='${directLink6}' target='_blank'><strong>YouTube</strong></a>
+                <a href='${GoogleUKLink3}' target="_blank"><img src="images/youtube.png" style="width:26px"></a><br>
+                <a href='${GoogleUKLink3}' target='_blank'><strong>YouTube</strong></a><br><br>
+                <img src="images/divider.png"</a><br><br>
+                <img src="images/limitcountry.svg" style="width:26px"></a>&nbsp;
+                <strong>Limit Search Results to Country</strong></br></br>
+                <a href='${CRGoogleUKpage1}' target="_blank"><img src="images/googleregular.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUKpage1}' target='_blank'><strong>Regular Google Search</strong></a><br>
+                <a href='${CRGoogleUKpage1}' target='_blank'>1</a>
+                <a href='${CRGoogleUKpage2}' target='_blank'>2</a>
+                <a href='${CRGoogleUKpage3}' target='_blank'>3</a>
+                <a href='${CRGoogleUKpage4}' target='_blank'>4</a>
+                <a href='${CRGoogleUKpage5}' target='_blank'>5</a>
+                <a href='${CRGoogleUKpage6}' target='_blank'>6</a>
+                <a href='${CRGoogleUKpage7}' target='_blank'>7</a>
+                <a href='${CRGoogleUKpage8}' target='_blank'>8</a>
+                <a href='${CRGoogleUKpage9}' target='_blank'>9</a>
+                <a href='${CRGoogleUKpage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleUKsearchTypeImage}' target="_blank"><img src="images/searchimage.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUKsearchTypeImage}' target='_blank'><strong>Google Image Search</strong></a><br><br>
+                <a href='${CRGoogleUKNewspage1}' target="_blank"><img src="images/searchnews.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUKNewspage1}' target='_blank'><strong>Google News Search</strong></a><br>
+                <a href='${CRGoogleUKNewspage1}' target='_blank'>1</a>
+                <a href='${CRGoogleUKNewspage2}' target='_blank'>2</a>
+                <a href='${CRGoogleUKNewspage3}' target='_blank'>3</a>
+                <a href='${CRGoogleUKNewspage4}' target='_blank'>4</a>
+                <a href='${CRGoogleUKNewspage5}' target='_blank'>5</a>
+                <a href='${CRGoogleUKNewspage6}' target='_blank'>6</a>
+                <a href='${CRGoogleUKNewspage7}' target='_blank'>7</a>
+                <a href='${CRGoogleUKNewspage8}' target='_blank'>8</a>
+                <a href='${CRGoogleUKNewspage9}' target='_blank'>9</a>
+                <a href='${CRGoogleUKNewspage10}' target='_blank'>10</a><br><br>
+                <a href='${CRGoogleUKsearchTypeVideos}' target="_blank"><img src="images/searchvideo.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUKsearchTypeVideos}' target='_blank'><strong>Google Video Search</strong></a><br><br>
+                <a href='${CRGoogleUKsearchTypeShopping}' target="_blank"><img src="images/searchshopping.png" style="width:26px"></a><br>
+                <a href='${CRGoogleUKsearchTypeShopping}' target='_blank'><strong>Google Shopping Search</strong></a><br><br>
                 `;
 
                 // Populate Section 3: Yandex
