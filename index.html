@@ -944,7 +944,7 @@
                 } else {
                     url = `https://www.google.com/search?q=${encoded}${baseParams}`;
                     if (link.tbm) url += `&tbm=${link.tbm}`;
-                    if (state.time !== 'Any time') url += `&tbs=${getTimeParam()}`;
+                    if (state.time !== 'Any time') url += `${getTimeParam()}`;
                 }
 
                 imgLink.href = url;
@@ -1289,7 +1289,7 @@
                 'Past 4 years': 'qdr:y4',
                 'Past 5 years': 'qdr:y5'
             };
-            return 'tbs=' + timeMap[state.time];
+            return '&tbs=' + timeMap[state.time];
         }
 
         // News Button Functionality
