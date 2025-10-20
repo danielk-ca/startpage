@@ -840,8 +840,36 @@
             });
         });
 
+        // handleRefresh reloads the current web page, in addition to clearing the input text value, collapsing/hiding all accordions, and resetting all Geographic Location/Time Range Cards to default (No Selection)
         function handleRefresh() {
             searchInput.value = '';
+            section1.classList.add('hidden');
+            section2.classList.add('hidden');
+            section3.classList.add('hidden');
+            section4.classList.add('hidden');
+            section1.open = false;
+            section2.open = false;
+            section3.open = false;
+            section4.open = false;
+            
+            // Reset Google settings
+            document.getElementById('location').value = 'Off';
+            document.getElementById('countryToggle').checked = false;
+            document.getElementById('countryToggleRow').style.display = 'none';
+            document.getElementById('timeRange').value = 'Any time';
+            state.geo = 'Off';
+            state.country = false;
+            state.time = 'Any time';
+            
+            // Reset Bing settings
+            document.getElementById('bingTimeRange').value = 'Any time';
+            state.bingTime = 'Any time';
+            
+            // Reset Yandex settings
+            document.getElementById('yandexTimeRange').value = 'Any time';
+            state.yandexTime = 'Any time';
+
+            // Reloads the current web page
             location.reload();
         }
 
@@ -859,6 +887,7 @@
             }
         }
 
+        // clearSearch clears the input text value, collapses all accordions, hides all accordions, and resets all Geographic Location/Time Range Cards to default (No Selection)
         function clearSearch() {
             searchInput.value = '';
             section1.classList.add('hidden');
@@ -869,6 +898,23 @@
             section2.open = false;
             section3.open = false;
             section4.open = false;
+            
+            // Reset Google settings
+            document.getElementById('location').value = 'Off';
+            document.getElementById('countryToggle').checked = false;
+            document.getElementById('countryToggleRow').style.display = 'none';
+            document.getElementById('timeRange').value = 'Any time';
+            state.geo = 'Off';
+            state.country = false;
+            state.time = 'Any time';
+            
+            // Reset Bing settings
+            document.getElementById('bingTimeRange').value = 'Any time';
+            state.bingTime = 'Any time';
+            
+            // Reset Yandex settings
+            document.getElementById('yandexTimeRange').value = 'Any time';
+            state.yandexTime = 'Any time';
         }
 
         function updateGoogleLinksOnChange() {
