@@ -950,7 +950,9 @@
         }
 
         function updateGoogleLinks(query) {
-            const encoded = encodeURIComponent(query);
+            const encoded = encodeURIComponent(query).replace(/%20/g, '+'); // Convert %20 to +
+
+
             const section = document.getElementById('googleLinksSection');
             section.innerHTML = '';
 
