@@ -806,6 +806,9 @@
     </div>
 
     <script>
+
+    // JavaScript Section Start
+
         const searchInput = document.getElementById('textInput1');
         const clearBtn = document.getElementById('clearBtn');
         const searchBtn = document.getElementById('searchBtn');
@@ -964,6 +967,8 @@
                 { label: 'Google Image Search', tbm: 'isch', icon: "images/searchimage.png" },
                 { label: 'Google News Search', tbm: 'nws', icon: "images/searchnews.png" },
                 { label: 'Google Video Search', tbm: 'vid', icon: "images/searchvideo.png" },
+                { label: 'Google Forum Search', udm: '18', icon: "images/searchforums.png" },
+                { label: 'Google Book Search', udm: '36', icon: "images/searchbooks.png" },
                 { label: 'Google Shopping Search', tbm: 'shop', icon: "images/searchshopping.png" },
                 { label: 'YouTube', youtube: true, icon: "images/youtube.png" }
             ];
@@ -993,6 +998,7 @@
                 } else {
                     url = `https://www.google.com/search?q=${encoded}${baseParams}`;
                     if (link.tbm) url += `&tbm=${link.tbm}`;
+                    if (link.udm) url += `&udm=${link.udm}`;
                     if (state.time !== 'Any time') url += `${getTimeParam()}`;
                 }
 
@@ -1018,7 +1024,7 @@
                 contentWrapper.appendChild(iconDiv);
                 contentWrapper.appendChild(linkEl);
 
-                if ((link.tbm === '' || link.tbm === 'nws') && !link.youtube) {
+                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws') && !link.youtube) {
                     const paginationDiv = document.createElement('div');
                     paginationDiv.className = 'pagination-links';
                     for (let i = 1; i <= 10; i++) {
@@ -1535,6 +1541,8 @@
             <div class="news-link-group"><a href="https://www.bing.com/account/action?scope=web&cc=au&ru=/news&settingpage=1" target="_blank"><img src="images/news-home.jpg" id="news-icon" style="height:26px;"></a><a href="https://www.bing.com/account/action?scope=web&cc=au&ru=/news&settingpage=1" target="_blank">Home</a></div>
             `;
         }
+
+    // JavaScript Section End
 
     </script>
 </body>
