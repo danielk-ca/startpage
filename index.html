@@ -970,6 +970,7 @@
                 { label: 'Google Forum Search', udm: '18', icon: "images/searchforums.png" },
                 { label: 'Google Book Search', udm: '36', icon: "images/searchbooks.png" },
                 { label: 'Google Shopping Search', tbm: 'shop', icon: "images/searchshopping.png" },
+                { label: 'Google Scholar Search', googlescholar: true, icon: "images/searchscholar.png" },
                 { label: 'YouTube', youtube: true, icon: "images/youtube.png" }
             ];
 
@@ -992,7 +993,9 @@
                 const imgLink = document.createElement('a');
 
                 let url;
-                if (link.youtube) {
+                if (link.googlescholar) {
+                    url = `https://scholar.google.com/scholar?q=${encoded}&safe=off`;
+                } else if (link.youtube) {
                     url = `https://www.youtube.com/results?search_query=${encoded}`;
                     if (state.geo !== 'Off') url += '&persist_gl=1&gl=' + getGlCode();
                 } else {
@@ -1024,7 +1027,7 @@
                 contentWrapper.appendChild(iconDiv);
                 contentWrapper.appendChild(linkEl);
 
-                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws') && !link.youtube) {
+                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws') && !link.googlescholar && !link.youtube) {
                     const paginationDiv = document.createElement('div');
                     paginationDiv.className = 'pagination-links';
                     for (let i = 1; i <= 10; i++) {
