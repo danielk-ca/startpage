@@ -676,6 +676,7 @@
                                 <option value="Past week">Past week</option>
                                 <option value="Past 2 weeks">Past 2 weeks</option>
                                 <option value="Past month">Past month</option>
+                                <option value="Past 2 months">Past 2 months</option>
                                 <option value="Past 3 months">Past 3 months</option>
                                 <option value="Past 6 months">Past 6 months</option>
                                 <option value="Past year">Past year</option>
@@ -720,6 +721,7 @@
                                 <option value="Past day">Past day</option>
                                 <option value="Past week">Past week</option>
                                 <option value="Past month">Past month</option>
+                                <option value="Past 2 months">Past 2 months</option>
                                 <option value="Past 3 months">Past 3 months</option>
                                 <option value="Past 6 months">Past 6 months</option>
                                 <option value="Past year">Past year</option>
@@ -1235,6 +1237,9 @@
             let startDays;
 
             switch (time) {
+                case 'Past 2 months':
+                    startDays = subtractDate({ months: 2 });
+                    break;
                 case 'Past 3 months':
                     startDays = subtractDate({ months: 3 });
                     break;
@@ -1340,6 +1345,7 @@
                 'Past week': 'qdr:w',
                 'Past 2 weeks': 'qdr:w2',
                 'Past month': 'qdr:m',
+                'Past 2 months': 'qdr:m2',
                 'Past 3 months': 'qdr:m3',
                 'Past 6 months': 'qdr:m6',
                 'Past year': 'qdr:y',
