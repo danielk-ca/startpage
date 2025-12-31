@@ -969,8 +969,6 @@
 
         function updateGoogleLinks(query) {
             const encoded = encodeURIComponent(query).replace(/%20/g, '+'); // Convert %20 to +
-
-
             const section = document.getElementById('googleLinksSection');
             section.innerHTML = '';
 
@@ -986,13 +984,26 @@
                 { label: 'Google Book Search', udm: '36', icon: "images/searchbooks.png" },
                 { label: 'Google Shopping Search', tbm: 'shop', icon: "images/searchshopping.png" },
                 { label: 'Google Scholar Search', googlescholar: true, icon: "images/searchscholar.png" },
-                { label: 'YouTube', youtube: true, icon: "images/youtube.png" }
+                { label: 'YouTube', youtube: true, icon: "images/youtube.png" },
+                { label: 'divider', isDivider: true }, // Horizontal rule
+                { label: 'Google Site Search: Reddit', reddit: true, icon: "images/reddit.png" }
             ];
 
             const searchTypes = document.createElement('div');
             searchTypes.className = 'search-types';
 
             links.forEach(link => {
+                // Handle divider
+                if (link.isDivider) {
+                    const divider = document.createElement('hr');
+                    divider.style.width = '100%';
+                    divider.style.border = 'none';
+                    divider.style.borderTop = '2px solid #d4d4d4';
+                    divider.style.margin = '10px 0';
+                    searchTypes.appendChild(divider);
+                    return;
+                }
+
                 const typeDiv = document.createElement('div');
                 typeDiv.className = 'search-type';
 
@@ -1013,6 +1024,8 @@
                 } else if (link.youtube) {
                     url = `https://www.youtube.com/results?search_query=${encoded}`;
                     if (state.geo !== 'Off') url += '&persist_gl=1&gl=' + getGlCode();
+                } else if (link.reddit) {
+                    url = `https://www.google.com/search?q=site:reddit.com+${encoded}${baseParams}`;
                 } else {
                     url = `https://www.google.com/search?q=${encoded}${baseParams}`;
                     if (link.tbm) url += `&tbm=${link.tbm}`;
@@ -1042,7 +1055,7 @@
                 contentWrapper.appendChild(iconDiv);
                 contentWrapper.appendChild(linkEl);
 
-                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws') && !link.googlescholar && !link.youtube) {
+                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws' || link.reddit) && !link.googlescholar && !link.youtube) {
                     const paginationDiv = document.createElement('div');
                     paginationDiv.className = 'pagination-links';
                     for (let i = 1; i <= 10; i++) {
