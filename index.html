@@ -1026,6 +1026,9 @@
                     if (state.geo !== 'Off') url += '&persist_gl=1&gl=' + getGlCode();
                 } else if (link.reddit) {
                     url = `https://www.google.com/search?q=site:reddit.com+${encoded}${baseParams}`;
+                    if (link.tbm) url += `&tbm=${link.tbm}`;
+                    if (link.udm) url += `&udm=${link.udm}`;
+                    if (state.time !== 'Any time') url += `${getTimeParam()}`;
                 } else {
                     url = `https://www.google.com/search?q=${encoded}${baseParams}`;
                     if (link.tbm) url += `&tbm=${link.tbm}`;
