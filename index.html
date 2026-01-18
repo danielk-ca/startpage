@@ -705,12 +705,96 @@
             </div>
         </details>
 
-        <!-- Bing Section -->
+        <!-- Google Site Search Section -->
         <details id="section2" class="hidden">
+            <summary>
+                <img src="images/GoogleSiteSearch.png" style="height:26px;" alt="Google Site Search">
+            </summary>
+            <div class="details-info">
+
+                <!-- Google Site Search Options Container -->
+                <div class="options-container" id="siteSearchOptionsContainer">
+
+                    <!-- Google Site Search Geographic Location Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 20">
+                                <path style="stroke:none;fill-rule:nonzero;fill:#a3acb9;fill-opacity:1" d="M16.672 20.02q-.001.001-.02-.004c-.039-.016-.07-.032-.101-.04q-4.036-1.387-8.07-2.769c-.098-.031-.122-.082-.122-.18V.152Q8.36.088 8.367.02q.001-.002.02.007l.101.04q4.031 1.383 8.063 2.761c.097.035.129.078.129.184v16.875q-.001.07-.008.133"/>
+                                <path style="stroke:none;fill-rule:nonzero;fill:#4f566b;fill-opacity:1" d="M.852 20.02c-.094 0-.184 0-.29-.008-.312-.098-.488-.297-.523-.63V3.896c0-.047 0-.094-.004-.153.012-.219.059-.418.153-.601.167-.328.445-.512.765-.645Q3.64 1.393 6.324.286q.31-.131.614-.266s.011 0 .019.007a.5.5 0 0 1 .012.11v16.918c0 .078-.016.125-.09.152-.098.04-.191.09-.29.133Q3.722 18.682.853 20.02m17.25 0s-.012 0-.02-.004c-.012-.012-.016-.02-.016-.036q.005-.075.004-.14c0-5.594 0-11.192-.004-16.785 0-.133.036-.196.157-.254C20.215 1.879 22.199.949 24.188.02q.115-.002.253.007c.2.043.36.133.457.305.055.098.082.215.122.32 0 0 0 .012-.008.02A.2.2 0 0 0 25 .73v15.422c0 .032.012.063.02.094 0 .016 0 .031-.008.055-.02.21-.063.402-.149.578-.164.336-.445.527-.773.664l-5.375 2.21c-.207.087-.41.18-.613.267"/>
+                            </svg>
+                            Geographic Location
+                        </div>
+                        <div class="card-body">
+                            <select id="siteSearchLocation" onchange="updateGoogleSiteSearchLinksOnChange()">
+                                <option value="Off">No Selection</option>
+                                <option value="United States">United States</option>
+                                <option value="Canada">Canada</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="Germany">Germany</option>
+                                <option value="France">France</option>
+                                <option value="Australia">Australia</option>
+                                <option value="China">China</option>
+                                <option value="Hong Kong">Hong Kong</option>
+                                <option value="Japan">Japan</option>
+                                <option value="South Korea">South Korea</option>
+                                <option value="Turkey">Turkey</option>
+                                <option value="Russia">Russia</option>
+                                <option value="Israel">Israel</option>
+                                <option value="India">India</option>
+                                <option value="Pakistan">Pakistan</option>
+                            </select>
+
+                            <div class="toggle-row" id="siteSearchCountryToggleRow" style="display: none;">
+                                <label for="siteSearchCountryToggle">Limit Search to Country</label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="siteSearchCountryToggle" onchange="updateGoogleSiteSearchLinksOnChange()">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Google Site Search Time Range Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 25">
+                                <path style="stroke:none;fill-rule:nonzero;fill:#4f566b;fill-opacity:1" d="M18.445 25.027a8 8 0 0 1-.433-.078c-2.547-.457-4.34-1.84-5.282-4.156-1.02-2.512-.367-5.375 1.77-7.266a6.72 6.72 0 0 1 3.89-1.687c2.16-.203 4.044.414 5.602 1.875 1.086 1.012 1.727 2.258 1.953 3.7.024.167.043.339.075.519.007.332.007.66 0 1.003-.079.715-.227 1.391-.516 2.036-.95 2.09-2.582 3.394-4.887 3.918-.234.054-.469.093-.703.136Zm2.996-5.87c.227-.009.426-.079.579-.25.21-.243.242-.512.113-.798-.13-.277-.367-.418-.68-.422-.465-.007-.933-.003-1.398-.003h-.14c0-.743.003-1.465 0-2.192-.005-.437-.333-.75-.767-.75a.735.735 0 0 0-.761.754v2.871c.004.094.011.188.039.278.097.328.379.507.789.511z"/>
+                                <path style="stroke:none;fill-rule:nonzero;fill:#a3acb9;fill-opacity:1" d="M.027 10.328c.055-.012.11-.008.16-.008h15.204l.007.032c-2.285 1.043-3.933 2.668-4.828 4.949-.89 2.277-.773 4.547.207 6.797a3 3 0 0 1-.164.007c-2.46.004-4.922 0-7.379.004-.867 0-1.632-.261-2.257-.847-.563-.528-.883-1.172-.922-1.934-.004-.047-.008-.094-.02-.148-.008-2.953-.008-5.895-.008-8.852M15.535.028c.235.09.477.144.672.269.438.281.64.7.648 1.203.008.434.004.867.004 1.3v.173h.168c.465 0 .93-.004 1.399 0 1.48.007 2.773 1.105 2.976 2.52q.034.24.032.487c.003.657 0 1.317 0 1.977v.16c-.063.004-.11.008-.157.008H.133c-.016 0-.028 0-.059-.016C.06 7.273.06 6.453.054 5.617c.012-.078.02-.148.032-.219.234-1.343 1.52-2.406 2.937-2.425.48-.008.961 0 1.442 0h.164V2.8c0-.45-.004-.899.004-1.348C4.64 1 4.84.63 5.207.34c.215-.168.469-.246.734-.313.133 0 .27 0 .43.008.805.14 1.313.727 1.316 1.5v1.426h6.114v-.164c0-.453-.008-.906.004-1.36.008-.453.215-.82.582-1.105.215-.168.468-.234.722-.305Zm0 0"/>
+                            </svg>
+                            Time Range
+                        </div>
+                        <div class="card-body">
+                            <select id="siteSearchTimeRange" onchange="updateGoogleSiteSearchLinksOnChange()">
+                                <option value="Any time">No Selection</option>
+                                <option value="Past hour">Past hour</option>
+                                <option value="Past 12 hours">Past 12 hours</option>
+                                <option value="Past day">Past day</option>
+                                <option value="Past week">Past week</option>
+                                <option value="Past 2 weeks">Past 2 weeks</option>
+                                <option value="Past month">Past month</option>
+                                <option value="Past 2 months">Past 2 months</option>
+                                <option value="Past 3 months">Past 3 months</option>
+                                <option value="Past 6 months">Past 6 months</option>
+                                <option value="Past year">Past year</option>
+                                <option value="Past 2 years">Past 2 years</option>
+                                <option value="Past 3 years">Past 3 years</option>
+                                <option value="Past 4 years">Past 4 years</option>
+                                <option value="Past 5 years">Past 5 years</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="links-section" id="googleSiteSearchLinksSection"></div>
+            </div>
+        </details>
+
+        <!-- Bing Section -->
+        <details id="section3" class="hidden">
             <summary>
                 <img src="images/bing.png" style="height:26px;" alt="Bing">
             </summary>
-            <div class="details-info" id="sectionDetails2">
+            <div class="details-info">
 
                 <div class="bing-settings-header">
                     <a href="https://www.bing.com/account?adlt_set=off&cc=us" target="_blank">
@@ -751,7 +835,7 @@
         </details>
 
         <!-- Yandex Section -->
-        <details id="section3" class="hidden">
+        <details id="section4" class="hidden">
             <summary>
                 <img src="images/yandex.png" style="height:26px;" alt="Yandex">
             </summary>
@@ -788,7 +872,7 @@
         </details>
 
         <!-- Baidu Section -->
-        <details id="section4" class="hidden">
+        <details id="section5" class="hidden">
             <summary>
                 <img src="images/baidu.png" style="height:26px;" alt="Baidu">
             </summary>
@@ -830,11 +914,15 @@
         const section2 = document.getElementById('section2');
         const section3 = document.getElementById('section3');
         const section4 = document.getElementById('section4');
+        const section5 = document.getElementById('section5');
 
         let state = {
             geo: 'Off',
             country: false,
             time: 'Any time',
+            siteSearchGeo: 'Off',
+            siteSearchCountry: false,
+            siteSearchTime: 'Any time',
             bingTime: 'Any time',
             yandexTime: 'Any time'
         };
@@ -847,7 +935,7 @@
             if (e.key === 'Enter') performSearch();
         });
 
-        [section1, section2, section3, section4].forEach(detail => {
+        [section1, section2, section3, section4, section5].forEach(detail => {
             detail.addEventListener('toggle', (e) => {
                 if (e.target.open) {
                     if (openDetails && openDetails !== e.target) {
@@ -865,10 +953,12 @@
             section2.classList.add('hidden');
             section3.classList.add('hidden');
             section4.classList.add('hidden');
+            section5.classList.add('hidden');
             section1.open = false;
             section2.open = false;
             section3.open = false;
             section4.open = false;
+            section5.open = false;
             
             // Reset Google settings
             document.getElementById('location').value = 'Off';
@@ -879,6 +969,15 @@
             state.country = false;
             state.time = 'Any time';
             
+            // Reset Google Site Search settings
+            document.getElementById('siteSearchLocation').value = 'Off';
+            document.getElementById('siteSearchCountryToggle').checked = false;
+            document.getElementById('siteSearchCountryToggleRow').style.display = 'none';
+            document.getElementById('siteSearchTimeRange').value = 'Any time';
+            state.siteSearchGeo = 'Off';
+            state.siteSearchCountry = false;
+            state.siteSearchTime = 'Any time';
+
             // Reset Bing settings
             document.getElementById('bingTimeRange').value = 'Any time';
             state.bingTime = 'Any time';
@@ -898,7 +997,9 @@
                 section2.classList.remove('hidden');
                 section3.classList.remove('hidden');
                 section4.classList.remove('hidden');
+                section5.classList.remove('hidden');
                 updateGoogleLinks(query);
+                updateGoogleSiteSearchLinks(query);
                 updateBingLinks(query);
                 updateYandexLinks(query);
                 updateBaiduLinks(query);
@@ -912,10 +1013,12 @@
             section2.classList.add('hidden');
             section3.classList.add('hidden');
             section4.classList.add('hidden');
+            section5.classList.add('hidden');
             section1.open = false;
             section2.open = false;
             section3.open = false;
             section4.open = false;
+            section5.open = false;
             
             // Reset Google settings
             document.getElementById('location').value = 'Off';
@@ -925,6 +1028,15 @@
             state.geo = 'Off';
             state.country = false;
             state.time = 'Any time';
+
+            // Reset Google Site Search settings
+            document.getElementById('siteSearchLocation').value = 'Off';
+            document.getElementById('siteSearchCountryToggle').checked = false;
+            document.getElementById('siteSearchCountryToggleRow').style.display = 'none';
+            document.getElementById('siteSearchTimeRange').value = 'Any time';
+            state.siteSearchGeo = 'Off';
+            state.siteSearchCountry = false;
+            state.siteSearchTime = 'Any time';
             
             // Reset Bing settings
             document.getElementById('bingTimeRange').value = 'Any time';
@@ -950,6 +1062,24 @@
 
             if (searchInput.value.trim()) {
                 updateGoogleLinks(searchInput.value);
+            }
+        }
+
+        function updateGoogleSiteSearchLinksOnChange() {
+            state.siteSearchGeo = document.getElementById('siteSearchLocation').value;
+            state.siteSearchCountry = document.getElementById('siteSearchCountryToggle').checked;
+            state.siteSearchTime = document.getElementById('siteSearchTimeRange').value;
+
+            const countryRow = document.getElementById('siteSearchCountryToggleRow');
+            countryRow.style.display = state.siteSearchGeo === 'Off' ? 'none' : 'flex';
+
+            if (state.siteSearchGeo === 'Off') {
+                state.siteSearchCountry = false;
+                document.getElementById('siteSearchCountryToggle').checked = false;
+            }
+
+            if (searchInput.value.trim()) {
+                updateGoogleSiteSearchLinks(searchInput.value);
             }
         }
 
@@ -985,8 +1115,6 @@
                 { label: 'Google Shopping Search', tbm: 'shop', icon: "images/searchshopping.png" },
                 { label: 'Google Scholar Search', googlescholar: true, icon: "images/searchscholar.png" },
                 { label: 'YouTube', youtube: true, icon: "images/youtube.png" },
-                { label: 'divider', isDivider: true }, // Horizontal rule
-                { label: 'Google Site Search: Reddit', reddit: true, icon: "images/reddit.png" }
             ];
 
             const searchTypes = document.createElement('div');
@@ -1024,11 +1152,6 @@
                 } else if (link.youtube) {
                     url = `https://www.youtube.com/results?search_query=${encoded}`;
                     if (state.geo !== 'Off') url += '&persist_gl=1&gl=' + getGlCode();
-                } else if (link.reddit) {
-                    url = `https://www.google.com/search?q=site:reddit.com+${encoded}${baseParams}`;
-                    if (link.tbm) url += `&tbm=${link.tbm}`;
-                    if (link.udm) url += `&udm=${link.udm}`;
-                    if (state.time !== 'Any time') url += `${getTimeParam()}`;
                 } else {
                     url = `https://www.google.com/search?q=${encoded}${baseParams}`;
                     if (link.tbm) url += `&tbm=${link.tbm}`;
@@ -1058,7 +1181,7 @@
                 contentWrapper.appendChild(iconDiv);
                 contentWrapper.appendChild(linkEl);
 
-                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws' || link.reddit) && !link.googlescholar && !link.youtube) {
+                if ((link.tbm === '' || link.udm === '' || link.tbm === 'nws') && !link.googlescholar && !link.youtube) {
                     const paginationDiv = document.createElement('div');
                     paginationDiv.className = 'pagination-links';
                     for (let i = 1; i <= 10; i++) {
@@ -1071,6 +1194,83 @@
                     }
                     contentWrapper.appendChild(paginationDiv);
                 }
+
+                typeDiv.appendChild(contentWrapper);
+                searchTypes.appendChild(typeDiv);
+            });
+
+            section.appendChild(searchTypes);
+        }
+
+        function updateGoogleSiteSearchLinks(query) {
+            const encoded = encodeURIComponent(query).replace(/%20/g, '+'); // Convert %20 to +
+            const section = document.getElementById('googleSiteSearchLinksSection');
+            section.innerHTML = '';
+
+            const baseParams = getSiteSearchBaseParams();
+
+            const siteLinks = [
+                { label: 'Google Site Search: Reddit', site: 'reddit.com', icon: "images/reddit.png" },
+                { label: 'Google Site Search: RedFlagDeals', site: 'redflagdeals.com', icon: "images/redflagdeals.png" },
+                { label: 'Google Site Search: IMDb', site: 'imdb.com', icon: "images/imdb.png" },
+                { label: 'Google Site Search: Apple TV', site: 'tv.apple.com', icon: "images/appletv.png" },
+                { label: 'Google Site Search: 4PDA', site: '4pda.ru', icon: "images/4pda.png" }
+            ];
+
+                const searchTypes = document.createElement('div');
+                searchTypes.className = 'search-types';
+
+                siteLinks.forEach(link => {
+                const typeDiv = document.createElement('div');
+                typeDiv.className = 'search-type';
+
+                const contentWrapper = document.createElement('div');
+                contentWrapper.style.display = 'flex';
+                contentWrapper.style.flexDirection = 'column';
+                contentWrapper.style.alignItems = 'center';
+                contentWrapper.style.gap = '8px';
+                contentWrapper.style.width = '100%';
+
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'search-type-icon';
+                const imgLink = document.createElement('a');
+
+                let url = `https://www.google.com/search?q=site:${link.site}+${encoded}${baseParams}`;
+                if (state.siteSearchTime !== 'Any time') url += `${getSiteSearchTimeParam()}`;
+
+                imgLink.href = url;
+                imgLink.target = '_blank';
+                imgLink.style.display = 'flex';
+                imgLink.style.alignItems = 'center';
+                imgLink.style.justifyContent = 'center';
+
+                const img = document.createElement('img');
+                img.src = link.icon;
+                img.alt = link.label;
+
+                imgLink.appendChild(img);
+                iconDiv.appendChild(imgLink);
+
+                const linkEl = document.createElement('a');
+                linkEl.href = url;
+                linkEl.target = '_blank';
+                linkEl.className = 'search-type-link';
+                linkEl.textContent = link.label;
+
+                contentWrapper.appendChild(iconDiv);
+                contentWrapper.appendChild(linkEl);
+
+                const paginationDiv = document.createElement('div');
+                paginationDiv.className = 'pagination-links';
+                for (let i = 1; i <= 10; i++) {
+                let pageUrl = url + `&start=${(i - 1) * 10}`;
+                let pageLink = document.createElement('a');
+                pageLink.href = pageUrl;
+                pageLink.target = '_blank';
+                pageLink.textContent = i;
+                paginationDiv.appendChild(pageLink);
+                }
+                contentWrapper.appendChild(paginationDiv);
 
                 typeDiv.appendChild(contentWrapper);
                 searchTypes.appendChild(typeDiv);
@@ -1419,6 +1619,96 @@
                 'Past 5 years': 'qdr:y5'
             };
             return '&tbs=' + timeMap[state.time];
+        }
+
+        function getSiteSearchBaseParams() {
+            let params = '&safe=off';
+            if (state.siteSearchGeo !== 'Off') {
+                const uule = getSiteSearchUule();
+                const gl = getSiteSearchGlCode();
+                params += `&uule=${uule}&gl=${gl}`;
+                if (state.siteSearchCountry) {
+                    params += `&cr=country${getSiteSearchCrCode()}`;
+                }
+            }
+            return params;
+        }
+
+        function getSiteSearchUule() {
+            if (state.siteSearchGeo === 'United States') return 'w+CAIQICIfTmV3IFlvcmssTmV3IFlvcmssVW5pdGVkIFN0YXRlcw';
+            if (state.siteSearchGeo === 'Canada') return 'w+CAIQICIWVG9yb250byxPbnRhcmlvLENhbmFkYQ';
+            if (state.siteSearchGeo === 'United Kingdom') return 'w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20';
+            if (state.siteSearchGeo === 'Germany') return 'w+CAIQICIYRnJhbmtmdXJ0LEhlc3NlbixHZXJtYW55';
+            if (state.siteSearchGeo === 'France') return 'w+CAIQICIgUGFyaXMsUGFyaXMsSWxlLWRlLUZyYW5jZSxGcmFuY2U';
+            if (state.siteSearchGeo === 'Australia') return 'w+CAIQICIkU3lkbmV5IENCRCxOZXcgU291dGggV2FsZXMsQXVzdHJhbGlh';
+            if (state.siteSearchGeo === 'China') return 'w+CAIQICIYU2hlbnpoZW4sR3Vhbmdkb25nLENoaW5h';
+            if (state.siteSearchGeo === 'Hong Kong') return 'w+CAIQICIJSG9uZyBLb25n';
+            if (state.siteSearchGeo === 'Japan') return 'w+CAIQICILVG9reW8sSmFwYW4';
+            if (state.siteSearchGeo === 'South Korea') return 'w+CAIQICIXU2VvdWwsU2VvdWwsU291dGggS29yZWE';
+            if (state.siteSearchGeo === 'Turkey') return 'w+CAIQICIYSXN0YW5idWwsSXN0YW5idWwsVHVya2V5';
+            if (state.siteSearchGeo === 'Russia') return 'w+CAIQICIUTW9zY293LE1vc2NvdyxSdXNzaWE';
+            if (state.siteSearchGeo === 'Israel') return 'w+CAIQICImVGVsIEF2aXYtWWFmbyxUZWwgQXZpdiBEaXN0cmljdCxJc3JhZWw';
+            if (state.siteSearchGeo === 'India') return 'w+CAIQICILRGVsaGksSW5kaWE';
+            if (state.siteSearchGeo === 'Pakistan') return 'w+CAIQICIWS2FyYWNoaSxTaW5kaCxQYWtpc3Rhbg';
+            return '';
+        }
+
+        function getSiteSearchGlCode() {
+            if (state.siteSearchGeo === 'United States') return 'US';
+            if (state.siteSearchGeo === 'Canada') return 'CA';
+            if (state.siteSearchGeo === 'United Kingdom') return 'GB';
+            if (state.siteSearchGeo === 'Germany') return 'DE';
+            if (state.siteSearchGeo === 'France') return 'FR';
+            if (state.siteSearchGeo === 'Australia') return 'AU';
+            if (state.siteSearchGeo === 'China') return 'CN';
+            if (state.siteSearchGeo === 'Hong Kong') return 'HK';
+            if (state.siteSearchGeo === 'Japan') return 'JP';
+            if (state.siteSearchGeo === 'South Korea') return 'KR';
+            if (state.siteSearchGeo === 'Turkey') return 'TR';
+            if (state.siteSearchGeo === 'Russia') return 'RU';
+            if (state.siteSearchGeo === 'Israel') return 'IL';
+            if (state.siteSearchGeo === 'India') return 'IN';
+            if (state.siteSearchGeo === 'Pakistan') return 'PK';
+            return '';
+        }
+
+        function getSiteSearchCrCode() {
+            if (state.siteSearchGeo === 'United States') return 'US';
+            if (state.siteSearchGeo === 'Canada') return 'CA';
+            if (state.siteSearchGeo === 'United Kingdom') return 'GB';
+            if (state.siteSearchGeo === 'Germany') return 'DE';
+            if (state.siteSearchGeo === 'France') return 'FR';
+            if (state.siteSearchGeo === 'Australia') return 'AU';
+            if (state.siteSearchGeo === 'China') return 'CN';
+            if (state.siteSearchGeo === 'Hong Kong') return 'HK';
+            if (state.siteSearchGeo === 'Japan') return 'JP';
+            if (state.siteSearchGeo === 'South Korea') return 'KR';
+            if (state.siteSearchGeo === 'Turkey') return 'TR';
+            if (state.siteSearchGeo === 'Russia') return 'RU';
+            if (state.siteSearchGeo === 'Israel') return 'IL';
+            if (state.siteSearchGeo === 'India') return 'IN';
+            if (state.siteSearchGeo === 'Pakistan') return 'PK';
+            return '';
+        }
+
+        function getSiteSearchTimeParam() {
+            const timeMap = {
+                'Past hour': 'qdr:h',
+                'Past 12 hours': 'qdr:h12',
+                'Past day': 'qdr:d',
+                'Past week': 'qdr:w',
+                'Past 2 weeks': 'qdr:w2',
+                'Past month': 'qdr:m',
+                'Past 2 months': 'qdr:m2',
+                'Past 3 months': 'qdr:m3',
+                'Past 6 months': 'qdr:m6',
+                'Past year': 'qdr:y',
+                'Past 2 years': 'qdr:y2',
+                'Past 3 years': 'qdr:y3',
+                'Past 4 years': 'qdr:y4',
+                'Past 5 years': 'qdr:y5'
+            };
+            return '&tbs=' + timeMap[state.siteSearchTime];
         }
 
         // News Button Functionality
