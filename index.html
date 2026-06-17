@@ -625,6 +625,7 @@
         </div>
 
         <!-- Google Section -->
+            <!-- Getting UULE and other Google Parameters: https://serpapi.com/playground | https://www.brightlocal.com/local-search-results-checker/ | https://www.fourfront.us/blog/local-serp-checker/ -->
         <details id="section1" class="hidden">
             <summary>
                 <img src="images/googlelogo.png" style="height:26px;" alt="Google">
@@ -648,6 +649,7 @@
                                 <option value="United Kingdom">United Kingdom</option>
                                 <option value="Germany">Germany</option>
                                 <option value="France">France</option>
+                                <option value="Mexico">Mexico</option>
                                 <option value="Australia">Australia</option>
                                 <option value="China">China</option>
                                 <option value="Hong Kong">Hong Kong</option>
@@ -732,6 +734,7 @@
                                 <option value="United Kingdom">United Kingdom</option>
                                 <option value="Germany">Germany</option>
                                 <option value="France">France</option>
+                                <option value="Mexico">Mexico</option>
                                 <option value="Australia">Australia</option>
                                 <option value="China">China</option>
                                 <option value="Hong Kong">Hong Kong</option>
@@ -1557,6 +1560,7 @@
             if (state.geo === 'United Kingdom') return 'w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20';
             if (state.geo === 'Germany') return 'w+CAIQICIYRnJhbmtmdXJ0LEhlc3NlbixHZXJtYW55';
             if (state.geo === 'France') return 'w+CAIQICIgUGFyaXMsUGFyaXMsSWxlLWRlLUZyYW5jZSxGcmFuY2U';
+            if (state.geo === 'Mexico') return 'w+CAIQICISTWV4aWNvIENpdHksTWV4aWNv';
             if (state.geo === 'Australia') return 'w+CAIQICIkU3lkbmV5IENCRCxOZXcgU291dGggV2FsZXMsQXVzdHJhbGlh';
             if (state.geo === 'China') return 'w+CAIQICIYU2hlbnpoZW4sR3Vhbmdkb25nLENoaW5h';
             if (state.geo === 'Hong Kong') return 'w+CAIQICIJSG9uZyBLb25n';
@@ -1576,6 +1580,7 @@
             if (state.geo === 'United Kingdom') return 'GB';
             if (state.geo === 'Germany') return 'DE';
             if (state.geo === 'France') return 'FR';
+            if (state.geo === 'Mexico') return 'MX';
             if (state.geo === 'Australia') return 'AU';
             if (state.geo === 'China') return 'CN';
             if (state.geo === 'Hong Kong') return 'HK';
@@ -1595,6 +1600,7 @@
             if (state.geo === 'United Kingdom') return 'GB';
             if (state.geo === 'Germany') return 'DE';
             if (state.geo === 'France') return 'FR';
+            if (state.geo === 'Mexico') return 'MX';
             if (state.geo === 'Australia') return 'AU';
             if (state.geo === 'China') return 'CN';
             if (state.geo === 'Hong Kong') return 'HK';
@@ -1647,6 +1653,7 @@
             if (state.siteSearchGeo === 'United Kingdom') return 'w+CAIQICIdTG9uZG9uLEVuZ2xhbmQsVW5pdGVkIEtpbmdkb20';
             if (state.siteSearchGeo === 'Germany') return 'w+CAIQICIYRnJhbmtmdXJ0LEhlc3NlbixHZXJtYW55';
             if (state.siteSearchGeo === 'France') return 'w+CAIQICIgUGFyaXMsUGFyaXMsSWxlLWRlLUZyYW5jZSxGcmFuY2U';
+            if (state.siteSearchGeo === 'Mexico') return 'w+CAIQICISTWV4aWNvIENpdHksTWV4aWNv';
             if (state.siteSearchGeo === 'Australia') return 'w+CAIQICIkU3lkbmV5IENCRCxOZXcgU291dGggV2FsZXMsQXVzdHJhbGlh';
             if (state.siteSearchGeo === 'China') return 'w+CAIQICIYU2hlbnpoZW4sR3Vhbmdkb25nLENoaW5h';
             if (state.siteSearchGeo === 'Hong Kong') return 'w+CAIQICIJSG9uZyBLb25n';
@@ -1666,6 +1673,7 @@
             if (state.siteSearchGeo === 'United Kingdom') return 'GB';
             if (state.siteSearchGeo === 'Germany') return 'DE';
             if (state.siteSearchGeo === 'France') return 'FR';
+            if (state.siteSearchGeo === 'Mexico') return 'MX';
             if (state.siteSearchGeo === 'Australia') return 'AU';
             if (state.siteSearchGeo === 'China') return 'CN';
             if (state.siteSearchGeo === 'Hong Kong') return 'HK';
@@ -1685,6 +1693,7 @@
             if (state.siteSearchGeo === 'United Kingdom') return 'GB';
             if (state.siteSearchGeo === 'Germany') return 'DE';
             if (state.siteSearchGeo === 'France') return 'FR';
+            if (state.siteSearchGeo === 'Mexico') return 'MX';
             if (state.siteSearchGeo === 'Australia') return 'AU';
             if (state.siteSearchGeo === 'China') return 'CN';
             if (state.siteSearchGeo === 'Hong Kong') return 'HK';
